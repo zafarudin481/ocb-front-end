@@ -4,23 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <title>Big Bookshelf - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter';
+            font-size: 16px;
+            color: grey;
+            box-sizing: border-box;
+        }
+
+        .temp {
+            border: 1px solid white;
+        }
+
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .align-center {
+            align-items: center;
+        }
+
+        nav {
+            width: 1200px;
+            height: 96px;
+        }
+
+        header li {
+            list-style-type: none;
+            font-weight: 400;
+            color: #ffffff60;
+        }
+
+        .rounded-corners {
+            border-radius: 20px;
+        }
+
+        .banner-font {
+            color: #f4ba30;
+            font-weight: 400;
+            font-size: 48px;
+            line-height: 56px;
+        }
+    </style>
 </head>
 
-<body>
-    <header>
-        <nav>
-            <div id="logo"></div>
-            <div id="nav-text"></div>
-            <div id="nav-icon"></div>
+<body style="background-color: #2a2c2e">
+    <header class="flex-column align-center" style=" width:100%; height: 248px; background-color: #ffffff">
+        <nav class="temp flex-row align-center rounded-corners"
+            style="margin: 24px; padding: 20px 24px; background-color: #2a2c2e; justify-content: space-between">
+            <img src="image/logo.png" alt="big bookshelf logo">
+            <ul id="nav-text" class="flex-row align-center"
+                style="width: 491px; height:24px; justify-content: space-between">
+                <li style="color: #f4d867">Books</li>
+                <li>Authors</li>
+                <li>Want to Read?</li>
+                <li>Gift Ideas</li>
+                <li>About Us</li>
+            </ul>
+            <div id="nav-right" class="flex-row align-center"
+                style="width: 258px; height: 56px; justify-content: space-between">
+                <div id="nav-icon" class="flex-row" style="width: 112px; height: 24px; justify-content: space-between">
+                    <img id="search-icon" src="image/icon-search.png" alt="search icon"
+                        style="width: 24px; height: 24px">
+                    <img id="bookmark-icon" src="image/icon-bookmark.png" alt="bookmark icon"
+                        style="width: 24px; height: 24px">
+                    <img id="shopping-icon" src="image/icon-shopping.png" alt="shopping icon"
+                        style="width: 24px; height: 24px">
+                </div>
+                <button
+                    style="width: 106px; height: 56px; background-color: #f4ce47; font-weight: 500; color: #000000; border-radius: 16px">LOGIN</button>
+            </div>
         </nav>
-        <div id="banner"></div>
+        <div id="banner" class="flex-row"
+            style="width: 100%; height: 80px; background-color: #f4ce47; flex-wrap: nowrap; gap: 24px; justify-content: center; align-items: center; white-space: nowrap">
+            <p class="banner-font">ALL BOOKS</p>
+            <p class="banner-font">ALL BOOKS</p>
+            <p class="banner-font" style="color: #2a2c2e">ALL BOOKS</p>
+            <p class="banner-font">ALL BOOKS</p>
+            <p class="banner-font">ALL BOOKS</p>
+        </div>
     </header>
     <main>
-
+        <article class="book-list"></article>
     </main>
     <footer>
-
+        <div id="footer-top"></div>
+        <div id="footer-bottom"></div>
     </footer>
 </body>
 
