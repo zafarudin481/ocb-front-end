@@ -103,6 +103,7 @@
         .comments {
             width: 58px;
             height: 32px;
+            padding: 0 8px;
             border: 1px solid black;
             border-radius: 31px;
             display: flex;
@@ -114,6 +115,7 @@
         .rates {
             width: 96px;
             height: 32px;
+            padding: 0 8px;
             border: 1px solid black;
             border-radius: 31px;
             display: flex;
@@ -172,11 +174,12 @@
     </style>
 </head>
 
-<body class="flex-column align-center" style="background-color: #2a2c2e; gap: 42px;">
-    <header class="flex-column align-center" style=" width:100%; height: 248px; background-color: #ffffff">
-        <nav class="temp flex-row align-center rounded-corners"
-            style="margin: 24px; padding: 20px 24px; background-color: #2a2c2e; justify-content: space-between">
-            <img src="image/logo.png" alt="big bookshelf logo">
+<body class="flex-column align-center" style="background-color: #2a2c2e; gap: 42px">
+    <header class="flex-column align-center"
+        style=" width:100%; height: 248px; padding: 24px 0; background-color: #ffffff; gap: 24px;">
+        <nav class="flex-row align-center rounded-corners"
+            style="padding: 20px 24px; background-color: #2a2c2e; justify-content: space-between">
+            <a href="index.html"><img src="image/logo.png" alt="big bookshelf logo"></a>
             <ul id="nav-text" class="flex-row align-center"
                 style="width: 491px; height:24px; justify-content: space-between">
                 <li style="color: #f4d867">Books</li>
@@ -200,7 +203,7 @@
             </div>
         </nav>
         <div id="banner" class="flex-row"
-            style="width: 100%; height: 80px; background-color: #f4ce47; flex-wrap: nowrap; gap: 24px; justify-content: center; align-items: center; white-space: nowrap">
+            style="width: 100%; height: 80px; background-color: #f4ce47; flex-wrap: nowrap; gap: 24px; justify-content: center; align-items: center; white-space: nowrap; overflow: hidden">
             <p class="banner-font">ALL BOOKS</p>
             <p class="banner-font">ALL BOOKS</p>
             <p class="banner-font" style="color: #2a2c2e">ALL BOOKS</p>
@@ -208,7 +211,7 @@
             <p class="banner-font">ALL BOOKS</p>
         </div>
     </header>
-    <main class="temp flex-column align-center" style="width: 1200px; height: 1747px">
+    <main class="flex-column align-center" style="width: 1200px; height: 1747px">
         <section id="book-catalogue" style="width: 898px; height: 1747px">
             <article class="book-list" style="width: 294px; height: 577px">
                 <img src="image/book-cover/adam-smith-the-wealth-of-nation.png"
@@ -378,11 +381,78 @@
                     </span>
                 </div>
             </article>
+            <article class="book-list" style="width: 294px; height: 577px">
+                <img src="image/book-cover/daniel-gargallo-she-beyond-sun.png" alt="She Beyond Sun by Daniel Gargallo">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Daniel Gargallo</p>
+                        <p class="book-title">She Beyond Sun</p>
+                    </span>
+                    <div class="community">
+                        <div class="comments">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="rates">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="comment icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <span class="pricing">
+                        <p class="before-less">$15.50</p>
+                        <p class="price">$10.50</p>
+                    </span>
+                </div>
+            </article>
+            <article class="book-list" style="width: 294px; height: 577px">
+                <img src="image/book-cover/alan-trotter-muscle.png" alt="Muscle by Alan Trotter">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Alan Trotter</p>
+                        <p class="book-title">Muscle</p>
+                    </span>
+                    <div class="community">
+                        <div class="comments">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="rates">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="comment icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <span class="pricing">
+                        <p class="price">$20.50</p>
+                    </span>
+                </div>
+            </article>
         </section>
     </main>
-    <footer>
-        <div id="footer-top"></div>
-        <div id="footer-bottom"></div>
+    <footer
+        style="background-color: white; width: 100%; height: 148px; display: flex; flex-flow: column nowrap; justify-content: flex-end; align-items: center;">
+        <div id="footer-top"
+            style="width: 1248px;height: 88px; background-color: #2a2c2e; padding: 0 24px; display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center">
+            <a href="index.html"><img src="image/logo.png" alt="big bookshelf logo"></a>
+            <div id="social-media"
+                style="width: 104px; height: 24px; display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center">
+                <a href="https://www.instagram.com/"><img src="image/icon-insta.png" alt="Instagram icon"></a>
+                <a href="https://www.facebook.com/"><img src="image/icon-fb.png" alt="Facebook icon"></a>
+                <a href="https://x.com/"><img src="image/icon-twitter.png" alt="Twitter icon"></a>
+            </div>
+        </div>
+        <div id="footer-bottom" class="flex-row"
+            style="width: 1248px; height: 40px; padding: 0 24px;  background-color: #000000DE; justify-content: space-between; align-items: center;">
+            <span class="flex-row" style="gap: 16px">
+                <p>Terms and conditions</p>
+                <p>Privacy policy</p>
+            </span>
+            <span class="flex-row" style="gap: 16px">
+                <p>+44 1332 412251</p>
+                <p>support@bbookshelf.com</p>
+            </span>
+        </div>
     </footer>
 </body>
 
