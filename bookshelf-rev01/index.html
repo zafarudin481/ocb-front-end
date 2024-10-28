@@ -17,6 +17,11 @@
 
         body {
             background-color: #2a2c2e;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 42px;
         }
 
         header {
@@ -43,6 +48,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 20px;
+            border-radius: 20px;
         }
 
         nav ul {
@@ -87,13 +93,148 @@
             letter-spacing: 0.0015em;
             color: #000000DE;
             border: 0;
-
+            border-radius: 16px;
         }
 
         #banner {
-            width: 110%;
+            width: calc(100% + 48px);
             height: 80px;
+            background-color: #f4ce47;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            white-space: nowrap;
             overflow: hidden;
+
+        }
+
+        #banner p {
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 56px;
+            color: #f4ba30;
+        }
+
+        #banner p.unique {
+            color: #2a2c2e;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1200px;
+            min-height: 1747px;
+        }
+
+        #book-catalogue {
+            width: 100%;
+            max-width: 898px;
+            height: 100%;
+            min-height: 1747px;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .book-card {
+            width: 294px;
+            height: 577px;
+            background-color: white;
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        article>img {
+            width: 246px;
+            height: 357px;
+            border-radius: 12px;
+        }
+
+        .book-description {
+            width: 246px;
+            height: 164px;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .book-author {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            letter-spacing: 0.0015em;
+            color: #00000099;
+        }
+
+        .book-title {
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            color: #000000DE;
+        }
+
+        .community {
+            width: 162px;
+            height: 32px;
+        }
+
+        .book-comments,
+        .book-rates {
+            height: 32px;
+            padding: 8px 12px;
+            border: 1px solid #000000DE;
+        }
+
+        .book-comments {
+            width: 58px;
+            border-radius: 31px;
+        }
+
+        .book-rates {
+            width: 96px;
+            border-radius: 47px;
+        }
+
+        div.community p {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0.0015em;
+            color: #000000DE;
+        }
+
+        .pricing {
+            width: 138px;
+            height: 32px;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            color: #000000DE;
+        }
+
+        .price-before-less {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            color: #00000061;
+            text-decoration: line-through;
+        }
+
+        .row-nowrap-between-center {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .temp-black {
@@ -108,7 +249,7 @@
 
 <body>
     <header>
-        <nav class="temp-black">
+        <nav>
             <a href="index.html"><img src="image/logo.png" alt="Big Bookshelf Logo"></a>
             <ul>
                 <li class="unique">Books</li>
@@ -126,9 +267,233 @@
                 <button>LOGIN</button>
             </div>
         </nav>
-        <div id="banner" class="temp-black"></div>
+        <div id="banner">
+            <p>ALL BOOKS</p>
+            <p>ALL BOOKS</p>
+            <p class="unique">ALL BOOKS</p>
+            <p>ALL BOOKS</p>
+            <p>ALL BOOKS</p>
+        </div>
     </header>
-    <main></main>
+    <main>
+        <section id="book-catalogue">
+            <article class="book-card">
+                <img src="image/book-cover/adam-smith-the-wealth-of-nation.png"
+                    alt="The Wealth of Nation by Adam Smith">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Adam Smith</p>
+                        <p class="book-title">The Wealth of Nation</p>
+                    </span>
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="book-rates row-nowrap-between-center">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="star icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="price-before-less">$15.50</p>
+                        <p class="current-price">$10.50</p>
+                    </div>
+                </div>
+            </article>
+            <article class="book-card">
+                <img src="image/book-cover/mikhail-bulgakov-the-master-and-margarita.png"
+                    alt="The Master & Margarita by Mikhail Bulgakov">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Mikhail Bulgakov</p>
+                        <p class="book-title">The Master & Margarita</p>
+                    </span>
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="book-rates row-nowrap-between-center">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="star icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="price-before-less">$15.50</p>
+                        <p class="current-price">$10.50</p>
+                    </div>
+                </div>
+            </article>
+            <article class="book-card">
+                <img src="image/book-cover/alex-gilvarry-from-the-memoirs-of-a-non-enemy-combatant.png"
+                    alt="From The Memoirs of a Non-Combatant by Alex Gilvarry">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Alex Gilvarry</p>
+                        <p class="book-title">From The Memoirs of a Non-Combatant</p>
+                    </span>
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="book-rates row-nowrap-between-center">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="star icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="current-price">$10.50</p>
+                    </div>
+                </div>
+            </article>
+            <article class="book-card">
+                <img src="image/book-cover/patrick-ness-more-than-this.png" alt="More Than This by Patrick Ness">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Patrick Ness</p>
+                        <p class="book-title">More Than This</p>
+                    </span>
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="book-rates row-nowrap-between-center">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="star icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="current-price">$10.50</p>
+                    </div>
+                </div>
+            </article>
+            <article class="book-card">
+                <img src="image/book-cover/erik-spiekermann-hello-i-am-erik.png"
+                    alt="Hello I am Erik by Erik Spiekermann">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Erik Spiekermann</p>
+                        <p class="book-title">Hello I am Erik</p>
+                    </span>
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="book-rates row-nowrap-between-center">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="star icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="current-price">$10.50</p>
+                    </div>
+                </div>
+            </article>
+            <article class="book-card">
+                <img src="image/book-cover/mario-puzo-the-godfather.png" alt="The Godfather by Mario Puzo">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Mario Puzo</p>
+                        <p class="book-title">The Godfather</p>
+                    </span>
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="book-rates row-nowrap-between-center">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="star icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="price-before-less">$15.50</p>
+                        <p class="current-price">$10.50</p>
+                    </div>
+                </div>
+            </article>
+            <article class="book-card">
+                <img src="image/book-cover/don-delillo-the-names.png" alt="The Names by Don Delillo">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Don Delillo</p>
+                        <p class="book-title">The Names</p>
+                    </span>
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="book-rates row-nowrap-between-center">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="star icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="current-price">$10.50</p>
+                    </div>
+                </div>
+            </article>
+            <article class="book-card">
+                <img src="image/book-cover/daniel-gargallo-she-beyond-sun.png" alt="She Beyond Sun by Daniel Gargallo">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Daniel Gargallo</p>
+                        <p class="book-title">She Beyond Sun</p>
+                    </span>
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="book-rates row-nowrap-between-center">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="star icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="price-before-less">$15.50</p>
+                        <p class="current-price">$10.50</p>
+                    </div>
+                </div>
+            </article>
+            <article class="book-card">
+                <img src="image/book-cover/alan-trotter-muscle.png" alt="Muscle by Alan Trotter">
+                <div class="book-description">
+                    <span class="author-title">
+                        <p class="book-author">Alan Trotter</p>
+                        <p class="book-title">Muscle</p>
+                    </span>
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
+                            <p>14</p>
+                            <img src="image/icon-comment.png" alt="comment icon">
+                        </div>
+                        <div class="book-rates row-nowrap-between-center">
+                            <p>4.6</p>
+                            <img src="image/icon-star.png" alt="star icon">
+                            <p>(165)</p>
+                        </div>
+                    </div>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="current-price">$22.50</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
     <footer></footer>
 </body>
 
