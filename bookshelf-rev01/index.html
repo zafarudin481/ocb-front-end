@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Big Bookshelf - Rev 01</title>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter';
+            font-size: 16px;
+        }
+
+        body {
+            background-color: #2a2c2e;
+        }
+
+        header {
+            width: 100%;
+            min-height: 254px;
+            padding: 24px;
+            background-color: white;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        nav {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 24px;
+            padding: 20px 24px;
+            min-height: 96px;
+            background-color: #2a2c2e;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+            font-weight: 400px;
+            color: #FFFFFF99;
+            list-style-type: none;
+        }
+
+        li.unique {
+            color: #f4d867;
+        }
+
+        #nav-right {
+            width: 258px;
+            height: 56px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #nav-icon {
+            width: 112px;
+            height: 24px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav button {
+            width: 106px;
+            height: 56px;
+            background-color: #f4ce47;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            color: #000000DE;
+            border: 0;
+
+        }
+
+        #banner {
+            width: 110%;
+            height: 80px;
+            overflow: hidden;
+        }
+
+        .temp-black {
+            border: 1px solid black;
+        }
+
+        .temp-white {
+            border: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="temp-black">
+            <a href="index.html"><img src="image/logo.png" alt="Big Bookshelf Logo"></a>
+            <ul>
+                <li class="unique">Books</li>
+                <li>Authors</li>
+                <li>What to Read?</li>
+                <li>Gift Ideas</li>
+                <li>About Us</li>
+            </ul>
+            <div id="nav-right">
+                <div id="nav-icon">
+                    <img src="image/icon-search.png" alt="Search Icon">
+                    <img src="image/icon-bookmark.png" alt="Bookmark Icon">
+                    <img src="image/icon-shopping.png" alt="Shopping Icon">
+                </div>
+                <button>LOGIN</button>
+            </div>
+        </nav>
+        <div id="banner" class="temp-black"></div>
+    </header>
+    <main></main>
+    <footer></footer>
+</body>
+
+</html>
