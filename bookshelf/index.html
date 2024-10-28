@@ -4,75 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Big Bookshelf - Rev 01</title>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <title>Big Bookshelf - Home</title>
     <style>
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Inter';
             font-size: 16px;
-            color: grey;
-            box-sizing: border-box;
         }
 
-        .temp {
-            border: 1px solid white;
-        }
-
-        .temp2 {
-            border: 1px solid black;
-        }
-
-        .flex-row {
+        body {
+            background-color: #2a2c2e;
             display: flex;
-            flex-direction: row;
-        }
-
-        .flex-column {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .align-center {
+            flex-flow: column nowrap;
+            justify-content: space-between;
             align-items: center;
+            gap: 42px;
+        }
+
+        header {
+            width: 100%;
+            min-height: 254px;
+            padding: 24px;
+            background-color: white;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
         }
 
         nav {
-            width: 1200px;
-            height: 96px;
-        }
-
-        header li {
-            list-style-type: none;
-            font-weight: 400;
-            color: #ffffff60;
-        }
-
-        .rounded-corners {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 24px;
+            padding: 20px 24px;
+            min-height: 96px;
+            background-color: #2a2c2e;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
             border-radius: 20px;
         }
 
-        .banner-font {
-            color: #f4ba30;
-            font-weight: 400;
+        nav ul {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+            font-weight: 400px;
+            color: #FFFFFF99;
+            list-style-type: none;
+        }
+
+        li.unique {
+            color: #f4d867;
+        }
+
+        #nav-right {
+            width: 258px;
+            height: 56px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #nav-icon {
+            width: 112px;
+            height: 24px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav button {
+            width: 106px;
+            height: 56px;
+            background-color: #f4ce47;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            color: #000000DE;
+            border: 0;
+            border-radius: 16px;
+        }
+
+        #banner {
+            width: calc(100% + 48px);
+            height: 80px;
+            background-color: #f4ce47;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            white-space: nowrap;
+            overflow: hidden;
+
+        }
+
+        #banner p {
             font-size: 48px;
+            font-weight: 400;
             line-height: 56px;
+            color: #f4ba30;
+        }
+
+        #banner p.unique {
+            color: #2a2c2e;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1200px;
+            min-height: 1747px;
         }
 
         #book-catalogue {
+            width: 100%;
+            max-width: 898px;
+            height: 100%;
+            min-height: 1747px;
+            margin: 0 auto;
             display: flex;
             flex-flow: row wrap;
+            justify-content: center;
+            align-items: flex-start;
             gap: 8px;
         }
 
-        .book-list {
+        .book-card {
+            width: 294px;
+            height: 577px;
             background-color: white;
             border-radius: 20px;
-            display: flex;
-            flex-flow: column nowrap;
-            gap: 8px;
-            align-items: center;
             padding: 24px;
         }
 
@@ -83,45 +155,49 @@
         }
 
         .book-description {
-            display: flex;
-            flex-flow: column;
-            justify-content: space-between;
-            align-items: flex-start;
             width: 246px;
             height: 164px;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .book-author {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            letter-spacing: 0.0015em;
+            color: #00000099;
+        }
+
+        .book-title {
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            color: #000000DE;
         }
 
         .community {
             width: 162px;
             height: 32px;
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        .comments {
+        .book-comments,
+        .book-rates {
+            height: 32px;
+            padding: 8px 12px;
+            border: 1px solid #000000DE;
+        }
+
+        .book-comments {
             width: 58px;
-            height: 32px;
-            padding: 0 8px;
-            border: 1px solid black;
             border-radius: 31px;
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-evenly;
-            align-items: center;
         }
 
-        .rates {
+        .book-rates {
             width: 96px;
-            height: 32px;
-            padding: 0 8px;
-            border: 1px solid black;
-            border-radius: 31px;
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-evenly;
-            align-items: center;
+            border-radius: 47px;
         }
 
         div.community p {
@@ -129,116 +205,165 @@
             font-weight: 400;
             line-height: 16px;
             letter-spacing: 0.0015em;
-            color: #000000;
+            color: #000000DE;
         }
 
         .pricing {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
             width: 138px;
             height: 32px;
         }
 
-        .price {
+        .current-price {
             font-size: 18px;
             font-weight: 400;
             line-height: 24px;
             letter-spacing: 0.0015em;
-            color: black;
+            color: #000000DE;
         }
 
-        .before-less {
+        .price-before-less {
             font-size: 18px;
             font-weight: 500;
             line-height: 24px;
             letter-spacing: 0.0015em;
-            color: #00000038;
+            color: #00000061;
             text-decoration: line-through;
         }
 
-        .book-author {
-            font-size: 14px;
-            font-weight: 400px;
-            line-height: 20px;
-            letter-spacing: 0.0015em;
-            color: #00000060;
+        .row-nowrap-between-center {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .book-title {
+        footer {
+            width: 100%;
+            min-height: 148px;
+            padding: 0 20px;
+            background-color: white;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        #footer-top {
+            width: 100%;
+            max-width: 1248px;
+            min-height: 88px;
+            background-color: #2a2c2e;
+            padding: 0 24px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer ul {
+            width: 104px;
+            height: 24px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            list-style-type: none;
+        }
+
+        #footer-bottom {
+            width: 100%;
+            max-width: 1248px;
+            min-height: 40px;
+            background-color: #000000DE;
+            padding: 12px 24px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #footer-bottom p {
+            font-size: 12px;
             font-weight: 400;
-            line-height: 24px;
+            line-height: 16px;
             letter-spacing: 0.0015em;
-            color: #000000;
+            color: white;
+        }
+
+        #footer-bottom span {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .temp-black {
+            border: 1px solid black;
+        }
+
+        .temp-white {
+            border: 1px solid white;
         }
     </style>
 </head>
 
-<body class="flex-column align-center" style="background-color: #2a2c2e; gap: 42px">
-    <header class="flex-column align-center"
-        style=" width:100%; height: 248px; padding: 24px 0; background-color: #ffffff; gap: 24px;">
-        <nav class="flex-row align-center rounded-corners"
-            style="padding: 20px 24px; background-color: #2a2c2e; justify-content: space-between">
-            <a href="index.html"><img src="image/logo.png" alt="big bookshelf logo"></a>
-            <ul id="nav-text" class="flex-row align-center"
-                style="width: 491px; height:24px; justify-content: space-between">
-                <li style="color: #f4d867">Books</li>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="image/logo.png" alt="Big Bookshelf Logo"></a>
+            <ul>
+                <li class="unique">Books</li>
                 <li>Authors</li>
-                <li>Want to Read?</li>
+                <li>What to Read?</li>
                 <li>Gift Ideas</li>
                 <li>About Us</li>
             </ul>
-            <div id="nav-right" class="flex-row align-center"
-                style="width: 258px; height: 56px; justify-content: space-between">
-                <div id="nav-icon" class="flex-row" style="width: 112px; height: 24px; justify-content: space-between">
-                    <img id="search-icon" src="image/icon-search.png" alt="search icon"
-                        style="width: 24px; height: 24px">
-                    <img id="bookmark-icon" src="image/icon-bookmark.png" alt="bookmark icon"
-                        style="width: 24px; height: 24px">
-                    <img id="shopping-icon" src="image/icon-shopping.png" alt="shopping icon"
-                        style="width: 24px; height: 24px">
+            <div id="nav-right">
+                <div id="nav-icon">
+                    <img src="image/icon-search.png" alt="Search Icon">
+                    <img src="image/icon-bookmark.png" alt="Bookmark Icon">
+                    <img src="image/icon-shopping.png" alt="Shopping Icon">
                 </div>
-                <button
-                    style="width: 106px; height: 56px; background-color: #f4ce47; font-weight: 500; color: #000000; border-radius: 16px; border: 0">LOGIN</button>
+                <button>LOGIN</button>
             </div>
         </nav>
-        <div id="banner" class="flex-row"
-            style="width: 100%; height: 80px; background-color: #f4ce47; flex-wrap: nowrap; gap: 24px; justify-content: center; align-items: center; white-space: nowrap; overflow: hidden">
-            <p class="banner-font">ALL BOOKS</p>
-            <p class="banner-font">ALL BOOKS</p>
-            <p class="banner-font" style="color: #2a2c2e">ALL BOOKS</p>
-            <p class="banner-font">ALL BOOKS</p>
-            <p class="banner-font">ALL BOOKS</p>
+        <div id="banner">
+            <p>ALL BOOKS</p>
+            <p>ALL BOOKS</p>
+            <p class="unique">ALL BOOKS</p>
+            <p>ALL BOOKS</p>
+            <p>ALL BOOKS</p>
         </div>
     </header>
-    <main class="flex-column align-center" style="width: 1200px; height: 1747px">
-        <section id="book-catalogue" style="width: 898px; height: 1747px">
-            <article class="book-list" style="width: 294px; height: 577px">
+    <main>
+        <section id="book-catalogue">
+            <article class="book-card">
                 <img src="image/book-cover/adam-smith-the-wealth-of-nation.png"
                     alt="The Wealth of Nation by Adam Smith">
                 <div class="book-description">
                     <span class="author-title">
                         <p class="book-author">Adam Smith</p>
-                        <p class="book-title">The Wealth of Nations</p>
+                        <p class="book-title">The Wealth of Nation</p>
                     </span>
-                    <div class="community">
-                        <div class="comments">
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
                             <p>14</p>
                             <img src="image/icon-comment.png" alt="comment icon">
                         </div>
-                        <div class="rates">
+                        <div class="book-rates row-nowrap-between-center">
                             <p>4.6</p>
-                            <img src="image/icon-star.png" alt="comment icon">
+                            <img src="image/icon-star.png" alt="star icon">
                             <p>(165)</p>
                         </div>
                     </div>
-                    <span class="pricing">
-                        <p class="before-less">$15.50</p>
-                        <p class="price">$10.50</p>
-                    </span>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="price-before-less">$15.50</p>
+                        <p class="current-price">$10.50</p>
+                    </div>
                 </div>
             </article>
-            <article class="book-list" style="width: 294px; height: 577px">
+            <article class="book-card">
                 <img src="image/book-cover/mikhail-bulgakov-the-master-and-margarita.png"
                     alt="The Master & Margarita by Mikhail Bulgakov">
                 <div class="book-description">
@@ -246,71 +371,71 @@
                         <p class="book-author">Mikhail Bulgakov</p>
                         <p class="book-title">The Master & Margarita</p>
                     </span>
-                    <div class="community">
-                        <div class="comments">
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
                             <p>14</p>
                             <img src="image/icon-comment.png" alt="comment icon">
                         </div>
-                        <div class="rates">
+                        <div class="book-rates row-nowrap-between-center">
                             <p>4.6</p>
-                            <img src="image/icon-star.png" alt="comment icon">
+                            <img src="image/icon-star.png" alt="star icon">
                             <p>(165)</p>
                         </div>
                     </div>
-                    <span class="pricing">
-                        <p class="before-less">$15.50</p>
-                        <p class="price">$10.50</p>
-                    </span>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="price-before-less">$15.50</p>
+                        <p class="current-price">$10.50</p>
+                    </div>
                 </div>
             </article>
-            <article class="book-list" style="width: 294px; height: 577px">
+            <article class="book-card">
                 <img src="image/book-cover/alex-gilvarry-from-the-memoirs-of-a-non-enemy-combatant.png"
-                    alt="From the Memoirs of a Non-Enemy Combatant by Alex Gilvarry">
+                    alt="From The Memoirs of a Non-Combatant by Alex Gilvarry">
                 <div class="book-description">
                     <span class="author-title">
                         <p class="book-author">Alex Gilvarry</p>
-                        <p class="book-title">From the Memoirs of a Non-Enemy Combatant</p>
+                        <p class="book-title">From The Memoirs of a Non-Combatant</p>
                     </span>
-                    <div class="community">
-                        <div class="comments">
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
                             <p>14</p>
                             <img src="image/icon-comment.png" alt="comment icon">
                         </div>
-                        <div class="rates">
+                        <div class="book-rates row-nowrap-between-center">
                             <p>4.6</p>
-                            <img src="image/icon-star.png" alt="comment icon">
+                            <img src="image/icon-star.png" alt="star icon">
                             <p>(165)</p>
                         </div>
                     </div>
-                    <span class="pricing">
-                        <p class="price">$10.50</p>
-                    </span>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="current-price">$10.50</p>
+                    </div>
                 </div>
             </article>
-            <article class="book-list" style="width: 294px; height: 577px">
+            <article class="book-card">
                 <img src="image/book-cover/patrick-ness-more-than-this.png" alt="More Than This by Patrick Ness">
                 <div class="book-description">
                     <span class="author-title">
                         <p class="book-author">Patrick Ness</p>
                         <p class="book-title">More Than This</p>
                     </span>
-                    <div class="community">
-                        <div class="comments">
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
                             <p>14</p>
                             <img src="image/icon-comment.png" alt="comment icon">
                         </div>
-                        <div class="rates">
+                        <div class="book-rates row-nowrap-between-center">
                             <p>4.6</p>
-                            <img src="image/icon-star.png" alt="comment icon">
+                            <img src="image/icon-star.png" alt="star icon">
                             <p>(165)</p>
                         </div>
                     </div>
-                    <span class="pricing">
-                        <p class="price">$10.50</p>
-                    </span>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="current-price">$10.50</p>
+                    </div>
                 </div>
             </article>
-            <article class="book-list" style="width: 294px; height: 577px">
+            <article class="book-card">
                 <img src="image/book-cover/erik-spiekermann-hello-i-am-erik.png"
                     alt="Hello I am Erik by Erik Spiekermann">
                 <div class="book-description">
@@ -318,140 +443,136 @@
                         <p class="book-author">Erik Spiekermann</p>
                         <p class="book-title">Hello I am Erik</p>
                     </span>
-                    <div class="community">
-                        <div class="comments">
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
                             <p>14</p>
                             <img src="image/icon-comment.png" alt="comment icon">
                         </div>
-                        <div class="rates">
+                        <div class="book-rates row-nowrap-between-center">
                             <p>4.6</p>
-                            <img src="image/icon-star.png" alt="comment icon">
+                            <img src="image/icon-star.png" alt="star icon">
                             <p>(165)</p>
                         </div>
                     </div>
-                    <span class="pricing">
-                        <p class="price">$10.50</p>
-                    </span>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="current-price">$10.50</p>
+                    </div>
                 </div>
             </article>
-            <article class="book-list" style="width: 294px; height: 577px">
+            <article class="book-card">
                 <img src="image/book-cover/mario-puzo-the-godfather.png" alt="The Godfather by Mario Puzo">
                 <div class="book-description">
                     <span class="author-title">
                         <p class="book-author">Mario Puzo</p>
                         <p class="book-title">The Godfather</p>
                     </span>
-                    <div class="community">
-                        <div class="comments">
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
                             <p>14</p>
                             <img src="image/icon-comment.png" alt="comment icon">
                         </div>
-                        <div class="rates">
+                        <div class="book-rates row-nowrap-between-center">
                             <p>4.6</p>
-                            <img src="image/icon-star.png" alt="comment icon">
+                            <img src="image/icon-star.png" alt="star icon">
                             <p>(165)</p>
                         </div>
                     </div>
-                    <span class="pricing">
-                        <p class="before-less">$15.50</p>
-                        <p class="price">$10.50</p>
-                    </span>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="price-before-less">$15.50</p>
+                        <p class="current-price">$10.50</p>
+                    </div>
                 </div>
             </article>
-            <article class="book-list" style="width: 294px; height: 577px">
+            <article class="book-card">
                 <img src="image/book-cover/don-delillo-the-names.png" alt="The Names by Don Delillo">
                 <div class="book-description">
                     <span class="author-title">
                         <p class="book-author">Don Delillo</p>
                         <p class="book-title">The Names</p>
                     </span>
-                    <div class="community">
-                        <div class="comments">
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
                             <p>14</p>
                             <img src="image/icon-comment.png" alt="comment icon">
                         </div>
-                        <div class="rates">
+                        <div class="book-rates row-nowrap-between-center">
                             <p>4.6</p>
-                            <img src="image/icon-star.png" alt="comment icon">
+                            <img src="image/icon-star.png" alt="star icon">
                             <p>(165)</p>
                         </div>
                     </div>
-                    <span class="pricing">
-                        <p class="price">$10.50</p>
-                    </span>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="current-price">$10.50</p>
+                    </div>
                 </div>
             </article>
-            <article class="book-list" style="width: 294px; height: 577px">
+            <article class="book-card">
                 <img src="image/book-cover/daniel-gargallo-she-beyond-sun.png" alt="She Beyond Sun by Daniel Gargallo">
                 <div class="book-description">
                     <span class="author-title">
                         <p class="book-author">Daniel Gargallo</p>
                         <p class="book-title">She Beyond Sun</p>
                     </span>
-                    <div class="community">
-                        <div class="comments">
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
                             <p>14</p>
                             <img src="image/icon-comment.png" alt="comment icon">
                         </div>
-                        <div class="rates">
+                        <div class="book-rates row-nowrap-between-center">
                             <p>4.6</p>
-                            <img src="image/icon-star.png" alt="comment icon">
+                            <img src="image/icon-star.png" alt="star icon">
                             <p>(165)</p>
                         </div>
                     </div>
-                    <span class="pricing">
-                        <p class="before-less">$15.50</p>
-                        <p class="price">$10.50</p>
-                    </span>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="price-before-less">$15.50</p>
+                        <p class="current-price">$10.50</p>
+                    </div>
                 </div>
             </article>
-            <article class="book-list" style="width: 294px; height: 577px">
+            <article class="book-card">
                 <img src="image/book-cover/alan-trotter-muscle.png" alt="Muscle by Alan Trotter">
                 <div class="book-description">
                     <span class="author-title">
                         <p class="book-author">Alan Trotter</p>
                         <p class="book-title">Muscle</p>
                     </span>
-                    <div class="community">
-                        <div class="comments">
+                    <div class="community row-nowrap-between-center">
+                        <div class="book-comments row-nowrap-between-center">
                             <p>14</p>
                             <img src="image/icon-comment.png" alt="comment icon">
                         </div>
-                        <div class="rates">
+                        <div class="book-rates row-nowrap-between-center">
                             <p>4.6</p>
-                            <img src="image/icon-star.png" alt="comment icon">
+                            <img src="image/icon-star.png" alt="star icon">
                             <p>(165)</p>
                         </div>
                     </div>
-                    <span class="pricing">
-                        <p class="price">$20.50</p>
-                    </span>
+                    <div class="pricing row-nowrap-between-center">
+                        <p class="current-price">$22.50</p>
+                    </div>
                 </div>
             </article>
         </section>
     </main>
-    <footer
-        style="background-color: white; width: 100%; height: 148px; display: flex; flex-flow: column nowrap; justify-content: flex-end; align-items: center;">
-        <div id="footer-top"
-            style="width: 1248px;height: 88px; background-color: #2a2c2e; padding: 0 24px; display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center">
-            <a href="index.html"><img src="image/logo.png" alt="big bookshelf logo"></a>
-            <div id="social-media"
-                style="width: 104px; height: 24px; display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center">
-                <a href="https://www.instagram.com/"><img src="image/icon-insta.png" alt="Instagram icon"></a>
-                <a href="https://www.facebook.com/"><img src="image/icon-fb.png" alt="Facebook icon"></a>
-                <a href="https://x.com/"><img src="image/icon-twitter.png" alt="Twitter icon"></a>
-            </div>
+    <footer>
+        <div id="footer-top">
+            <a href="index.html"><img src="image/logo.png" alt="Big Bookshelf Logo"></a>
+            <ul>
+                <li><a href="https://www.instagram.com/"><img src="image/icon-insta.png" alt="Instagram logo"></a></li>
+                <li><a href="https://www.facebook.com/"><img src="image/icon-fb.png" alt="Facebook logo"></a></li>
+                <li><a href="https://x.com/"><img src="image/icon-twitter.png" alt="Twitter logo"></a></li>
+            </ul>
         </div>
-        <div id="footer-bottom" class="flex-row"
-            style="width: 1248px; height: 40px; padding: 0 24px;  background-color: #000000DE; justify-content: space-between; align-items: center;">
-            <span class="flex-row" style="gap: 16px">
+        <div id="footer-bottom">
+            <Span class="row-nowrap-between-center">
                 <p>Terms and conditions</p>
                 <p>Privacy policy</p>
-            </span>
-            <span class="flex-row" style="gap: 16px">
-                <p>+44 1332 412251</p>
+            </Span>
+            <span class="row-nowrap-between-center">
+                <p>+ 44 1332 412251</p>
                 <p>support@bbookshelf.com</p>
-            </span>
+            </Span>
         </div>
     </footer>
 </body>
