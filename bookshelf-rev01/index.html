@@ -237,6 +237,67 @@
             align-items: center;
         }
 
+        footer {
+            width: 100%;
+            min-height: 148px;
+            padding: 0 20px;
+            background-color: white;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        #footer-top {
+            width: 100%;
+            max-width: 1248px;
+            min-height: 88px;
+            background-color: #2a2c2e;
+            padding: 0 24px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer ul {
+            width: 104px;
+            height: 24px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            list-style-type: none;
+        }
+
+        #footer-bottom {
+            width: 100%;
+            max-width: 1248px;
+            min-height: 40px;
+            background-color: #000000DE;
+            padding: 12px 24px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #footer-bottom p {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0.0015em;
+            color: white;
+        }
+
+        #footer-bottom span {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
         .temp-black {
             border: 1px solid black;
         }
@@ -494,7 +555,26 @@
             </article>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <div id="footer-top">
+            <a href="index.html"><img src="image/logo.png" alt="Big Bookshelf Logo"></a>
+            <ul>
+                <li><a href="https://www.instagram.com/"><img src="image/icon-insta.png" alt="Instagram logo"></a></li>
+                <li><a href="https://www.facebook.com/"><img src="image/icon-fb.png" alt="Facebook logo"></a></li>
+                <li><a href="https://x.com/"><img src="image/icon-twitter.png" alt="Twitter logo"></a></li>
+            </ul>
+        </div>
+        <div id="footer-bottom">
+            <Span class="row-nowrap-between-center">
+                <p>Terms and conditions</p>
+                <p>Privacy policy</p>
+            </Span>
+            <span class="row-nowrap-between-center">
+                <p>+ 44 1332 412251</p>
+                <p>support@bbookshelf.com</p>
+            </Span>
+        </div>
+    </footer>
 </body>
 
 </html>
