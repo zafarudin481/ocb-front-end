@@ -7,6 +7,8 @@
     <title>Register Your Book</title>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <style>
+        /* General Styling */
+
         * {
             margin: 0;
             padding: 0;
@@ -19,6 +21,8 @@
         body {
             background-color: white;
         }
+
+        /* Header styling */
 
         header {
             width: 100%;
@@ -76,6 +80,8 @@
             color: #000000DE;
         }
 
+        /* Main Section Styling */
+
         main {
             width: 100%;
             padding: 0 24px;
@@ -98,6 +104,8 @@
             margin-bottom: 32px;
         }
 
+        /* Form Styling */
+
         form {
             width: 711px;
             height: 946px;
@@ -115,6 +123,30 @@
             letter-spacing: 0.0015em;
             padding-right: 12px;
         }
+
+        label,
+        #availability-form {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+        }
+
+        #for-radio {
+            border: 0;
+        }
+
+        #availability-form {
+            float: left;
+        }
+
+        input,
+        select,
+        option {
+            color: black;
+        }
+
+        /* Footer Styling */
 
         footer {
             width: 100%;
@@ -154,11 +186,24 @@
             color: white;
         }
 
+        /* Reusable styling */
+
         .flx-rw-wr-spbw-ctr {
             display: flex;
             flex-flow: row wrap;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .flx-cl-xwr-spbw-flst {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .d-inln {
+            display: inline;
         }
     </style>
 </head>
@@ -190,11 +235,68 @@
             <form method="post" action="">
                 <fieldset>
                     <legend>Book Details</legend>
-                    <label for="book-title">Title</label><input type="text" id="book-title" name="book-title">
+                    <label for="book-title">Title</label>
+                    <input type="text" id="book-title" name="book-title">
+                    <br>
                     <label for="book-genre">Genre</label>
-                    <select name="book-genre" id="book-genre"></select>
-                    <!-- resume code here -->
+                    <select name="book-genre" id="book-genre">
+                        <option value="">(please select one)</option>
+                        <option value="science-fiction">Science Fiction</option>
+                        <option value="historical-fiction">Historical Fiction</option>
+                        <option value="contemporary-fiction">Contemporary Fiction</option>
+                        <option value="romance">Romance</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="thriller-suspense">Thriller/Suspense</option>
+                        <option value="paranormal">Paranormal</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="horror">Horror</option>
+                        <option value="action-adventure">Action Adventure</option>
+                    </select>
+                    <br>
+                    <label for="book-author">Author</label>
+                    <input id="book-author" name="book-author" type="text">
+                    <br>
+                    <label for="book-publisher">Publisher</label>
+                    <input id="book-publisher" name="book-publisher" type="text">
+                    <br>
+                    <label for="year-published">Year Published</label>
+                    <input id="year-published" name="year-published" type="number" min="1960" max="2024">
+                    <br>
+                    <label for="book-pages">Pages</label>
+                    <input id="book-pages" name="book-pages" type="number">
+                    <br>
+                    <label for="book-language">Language</label>
+                    <select name="book-language" id="book-language">
+                        <option value="">(please select one)</option>
+                        <option value="english">English</option>
+                        <option value="malay">Bahasa Melayu</option>
+                        <option value="mandarin">Mandarin</option>
+                        <option value="tamil">Tamil</option>
+                        <option value="others">Others</option>
+                    </select>
                 </fieldset>
+                <fieldset id="for-radio">
+                    <legend id="availability-form">Availability</legend>
+                    <input id="online" name="book-availability" value="online" type="radio" checked><label
+                        for="online">Online</label>
+                    <input id="in-store" name="book-availability" value="in-store" type="radio"><label for="in-store">In
+                        store</label>
+                    <input id="online-instore" name="book-availability" value="online-instore" type="radio"><label
+                        for="online-instore">Online
+                        & In store</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Registree Details</legend>
+                    <label for="registree-name">Name</label>
+                    <input id="registree-name" name="registree-name" type="text">
+                    <br>
+                    <label for="registree-email">Email</label>
+                    <input id="registree-email" name="registree-email" type="email">
+                </fieldset>
+                <input id="agree-to-tnc" name="agree-to-tnc" type="checkbox" required>
+                <label for="agree-to-tnc"> I
+                    hereby agree to follow all rules and confirmed that all details are accurate</label>
+                <input type="submit" value="submit">
             </form>
         </section>
     </main>
