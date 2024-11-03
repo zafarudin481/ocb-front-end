@@ -114,6 +114,12 @@
         fieldset {
             border: 0;
             border-top: 1px solid white;
+            margin-bottom: 20px;
+        }
+
+        fieldset:first-of-type,
+        fieldset:last-of-type {
+            margin-bottom: 0;
         }
 
         legend {
@@ -124,6 +130,11 @@
             padding-right: 12px;
         }
 
+        fieldset>div,
+        #availability-form {
+            margin: 20px 0;
+        }
+
         label,
         #availability-form {
             font-size: 16px;
@@ -132,18 +143,76 @@
             letter-spacing: 0.0015em;
         }
 
+        #availability-form {
+            float: left;
+        }
+
         #for-radio {
             border: 0;
         }
 
-        #availability-form {
-            float: left;
+        #for-radio>div {
+            justify-content: flex-start;
+            width: 572px;
+            float: right;
+        }
+
+        #for-radio label {
+            margin-right: 70px;
         }
 
         input,
         select,
         option {
             color: black;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select {
+            padding: 1em;
+            border-radius: 16px;
+            width: 572px;
+        }
+
+        input[type="radio"] {
+            margin-right: 16px;
+            border: 2px;
+            width: 1em;
+            height: 1em;
+            color: #d9d9d9;
+            accent-color: #f4ce47;
+        }
+
+        form>div {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 25px;
+            border: 0px;
+            width: 1em;
+            height: 1em;
+            color: #d9d9d9;
+            accent-color: #f4ce47;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            height: 56px;
+            margin: 20px 0;
+            padding: 16px 28px;
+            border: 0;
+            border-radius: 16px;
+            background-color: #f4ce47;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            color: #000000DE;
         }
 
         /* Footer Styling */
@@ -235,68 +304,84 @@
             <form method="post" action="index.html">
                 <fieldset>
                     <legend>Book Details</legend>
-                    <label for="book-title">Title</label>
-                    <input type="text" id="book-title" name="book-title">
-                    <br>
-                    <label for="book-genre">Genre</label>
-                    <select name="book-genre" id="book-genre">
-                        <option value="">(please select one)</option>
-                        <option value="science-fiction">Science Fiction</option>
-                        <option value="historical-fiction">Historical Fiction</option>
-                        <option value="contemporary-fiction">Contemporary Fiction</option>
-                        <option value="romance">Romance</option>
-                        <option value="fantasy">Fantasy</option>
-                        <option value="thriller-suspense">Thriller/Suspense</option>
-                        <option value="paranormal">Paranormal</option>
-                        <option value="mystery">Mystery</option>
-                        <option value="horror">Horror</option>
-                        <option value="action-adventure">Action Adventure</option>
-                    </select>
-                    <br>
-                    <label for="book-author">Author</label>
-                    <input id="book-author" name="book-author" type="text">
-                    <br>
-                    <label for="book-publisher">Publisher</label>
-                    <input id="book-publisher" name="book-publisher" type="text">
-                    <br>
-                    <label for="year-published">Year Published</label>
-                    <input id="year-published" name="year-published" type="number" min="1960" max="2024">
-                    <br>
-                    <label for="book-pages">Pages</label>
-                    <input id="book-pages" name="book-pages" type="number">
-                    <br>
-                    <label for="book-language">Language</label>
-                    <select name="book-language" id="book-language">
-                        <option value="">(please select one)</option>
-                        <option value="english">English</option>
-                        <option value="malay">Bahasa Melayu</option>
-                        <option value="mandarin">Mandarin</option>
-                        <option value="tamil">Tamil</option>
-                        <option value="others">Others</option>
-                    </select>
+                    <div class="flx-rw-wr-spbw-ctr">
+                        <label for="book-title">Title</label>
+                        <input type="text" id="book-title" name="book-title" required>
+                    </div>
+                    <div class="flx-rw-wr-spbw-ctr">
+                        <label for="book-genre">Genre</label>
+                        <select name="book-genre" id="book-genre">
+                            <option value="">(please select one)</option>
+                            <option value="science-fiction">Science Fiction</option>
+                            <option value="historical-fiction">Historical Fiction</option>
+                            <option value="contemporary-fiction">Contemporary Fiction</option>
+                            <option value="romance">Romance</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="thriller-suspense">Thriller/Suspense</option>
+                            <option value="paranormal">Paranormal</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="horror">Horror</option>
+                            <option value="action-adventure">Action Adventure</option>
+                        </select>
+                    </div>
+                    <div class="flx-rw-wr-spbw-ctr">
+                        <label for="book-author">Author</label>
+                        <input id="book-author" name="book-author" type="text" required>
+                    </div>
+                    <div class="flx-rw-wr-spbw-ctr">
+                        <label for="book-publisher">Publisher</label>
+                        <input id="book-publisher" name="book-publisher" type="text" required>
+                    </div>
+                    <div class="flx-rw-wr-spbw-ctr">
+                        <label for="year-published">Year Published</label>
+                        <input id="year-published" name="year-published" type="number" min="1960" max="2024" required>
+                    </div>
+                    <div class="flx-rw-wr-spbw-ctr">
+                        <label for="book-pages">Pages</label>
+                        <input id="book-pages" name="book-pages" type="number" required>
+                    </div>
+                    <div class="flx-rw-wr-spbw-ctr">
+                        <label for="book-language">Language</label>
+                        <select name="book-language" id="book-language">
+                            <option value="">(please select one)</option>
+                            <option value="english">English</option>
+                            <option value="malay">Bahasa Melayu</option>
+                            <option value="mandarin">Mandarin</option>
+                            <option value="tamil">Tamil</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
                 </fieldset>
                 <fieldset id="for-radio">
                     <legend id="availability-form">Availability</legend>
-                    <input id="online" name="book-availability" value="online" type="radio" checked><label
-                        for="online">Online</label>
-                    <input id="in-store" name="book-availability" value="in-store" type="radio"><label for="in-store">In
-                        store</label>
-                    <input id="online-instore" name="book-availability" value="online-instore" type="radio"><label
-                        for="online-instore">Online
-                        & In store</label>
+                    <div class="flx-rw-wr-spbw-ctr">
+                        <input id="online" name="book-availability" value="online" type="radio" checked><label
+                            for="online">Online</label>
+                        <input id="in-store" name="book-availability" value="in-store" type="radio"><label
+                            for="in-store">In
+                            store</label>
+                        <input id="online-instore" name="book-availability" value="online-instore" type="radio"><label
+                            for="online-instore">Online
+                            & In store</label>
+                    </div>
                 </fieldset>
                 <fieldset>
                     <legend>Registree Details</legend>
-                    <label for="registree-name">Name</label>
-                    <input id="registree-name" name="registree-name" type="text">
-                    <br>
-                    <label for="registree-email">Email</label>
-                    <input id="registree-email" name="registree-email" type="email">
+                    <div class="flx-rw-wr-spbw-ctr">
+                        <label for="registree-name">Name</label>
+                        <input id="registree-name" name="registree-name" type="text" required>
+                    </div>
+                    <div class="flx-rw-wr-spbw-ctr">
+                        <label for="registree-email">Email</label>
+                        <input id="registree-email" name="registree-email" type="email" required>
+                    </div>
                 </fieldset>
-                <input id="agree-to-tnc" name="agree-to-tnc" type="checkbox" required>
-                <label for="agree-to-tnc"> I
-                    hereby agree to follow all rules and confirmed that all details are accurate</label>
-                <input type="submit" value="submit">
+                <div>
+                    <input id="agree-to-tnc" name="agree-to-tnc" type="checkbox" required>
+                    <label for="agree-to-tnc"> I
+                        hereby agree to follow all rules and confirmed that all details are accurate</label>
+                </div>
+                <input type="submit" value="SAVE YOUR BOOK">
             </form>
         </section>
     </main>
