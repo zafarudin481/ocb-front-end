@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Book</title>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter';
+            font-size: 16px;
+            color: white;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        header {
+            width: 100%;
+            padding: 24px;
+        }
+
+        nav {
+            width: 100%;
+            max-width: 1200px;
+            min-height: 96px;
+            margin: 0 auto;
+            background-color: #2a2c2e;
+            padding: 20px 24px;
+            border-radius: 20px;
+        }
+
+        nav li {
+            list-style-type: none;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            color: #FFFFFF99;
+        }
+
+        nav ul {
+            gap: 32px;
+        }
+
+        #nav-tx-ylw {
+            color: #f4d867;
+        }
+
+        #nav-right {
+            width: 258px;
+            height: 56px;
+        }
+
+        #nav-icon {
+            width: 112px;
+            height: 24px;
+        }
+
+        nav button {
+            width: 106px;
+            height: 56px;
+            border-radius: 16px;
+            border: 0;
+            padding: 16px 28px;
+            background-color: #f4ce47;
+            font-family: Inter;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            text-align: center;
+            color: #000000DE;
+        }
+
+        main {
+            width: 100%;
+            padding: 0 24px;
+        }
+
+        #main-section {
+            width: 100%;
+            max-width: 1200px;
+            min-height: 1112px;
+            margin: 0 auto;
+            padding: 32px 40px;
+            background-color: #2a2c2e;
+            border-radius: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 28px;
+            margin-bottom: 32px;
+        }
+
+        form {
+            width: 711px;
+            height: 946px;
+        }
+
+        fieldset {
+            border: 0;
+            border-top: 1px solid white;
+        }
+
+        legend {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            padding-right: 12px;
+        }
+
+        footer {
+            width: 100%;
+            padding: 24px 24px 0;
+        }
+
+        #footer-top,
+        #footer-bottom {
+            max-width: 1248px;
+            margin: 0 auto;
+            padding: 12px 24px;
+        }
+
+        #footer-top {
+            min-height: 88px;
+            background-color: #2a2c2e;
+        }
+
+        #social-media {
+            gap: 16px;
+        }
+
+        #footer-bottom {
+            min-height: 40px;
+            background-color: #000000DE;
+        }
+
+        #footer-bottom>div {
+            gap: 16px;
+        }
+
+        #footer-bottom p {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0.0015em;
+            color: white;
+        }
+
+        .flx-rw-wr-spbw-ctr {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="flx-rw-wr-spbw-ctr">
+            <a href="index.html"><img src="image/logo.png" alt="Big Bookshelf Logo"></a>
+            <ul class="flx-rw-wr-spbw-ctr">
+                <li id="nav-tx-ylw">Books</li>
+                <li>Authors</li>
+                <li>What to Read?</li>
+                <li>Gift Ideas</li>
+                <li>About Us</li>
+            </ul>
+            <div id="nav-right" class="flx-rw-wr-spbw-ctr">
+                <div id="nav-icon" class="flx-rw-wr-spbw-ctr">
+                    <img src="image/icon-search.png" alt="search icon">
+                    <img src="image/icon-bookmark.png" alt="bookmark icon">
+                    <img src="image/icon-shopping.png" alt="shopping icon">
+                </div>
+                <button>LOGIN</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="main-section">
+            <h1>REGISTER YOUR BOOK</h1>
+            <form method="post" action="">
+                <fieldset>
+                    <legend>Book Details</legend>
+                    <label for="book-title">Title</label><input type="text" id="book-title" name="book-title">
+                    <label for="book-genre">Genre</label>
+                    <select name="book-genre" id="book-genre"></select>
+                    <!-- resume code here -->
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div id="footer-top" class="flx-rw-wr-spbw-ctr">
+            <a href="index.html"><img src="image/logo.png" alt="Big Bookshelf Logo"></a>
+            <div id="social-media" class="flx-rw-wr-spbw-ctr">
+                <a href="https://www.instagram.com/"><img src="image/icon-insta.png" alt="Instagram Icon"></a>
+                <a href="https://www.facebook.com/"><img src="image/icon-fb.png" alt="Facebook Icon"></a>
+                <a href="https://x.com/"><img src="image/icon-twitter.png" alt="Twitter Icon"></a>
+            </div>
+        </div>
+        <div id="footer-bottom" class="flx-rw-wr-spbw-ctr">
+            <div class="flx-rw-wr-spbw-ctr">
+                <p>Terms and conditions</p>
+                <p>Privacy policy</p>
+            </div>
+            <div class="flx-rw-wr-spbw-ctr">
+                <p>+44 1332 412251</p>
+                <p>support@bbookshelf.com</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
