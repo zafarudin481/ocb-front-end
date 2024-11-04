@@ -48,6 +48,7 @@
         }
 
         nav ul {
+            margin: 10px 0;
             gap: 32px;
         }
 
@@ -90,7 +91,7 @@
         #main-section {
             width: 100%;
             max-width: 1200px;
-            min-height: 1112px;
+            min-height: 1100px;
             margin: 0 auto;
             padding: 32px 40px;
             background-color: #2a2c2e;
@@ -107,8 +108,9 @@
         /* Form Styling */
 
         form {
-            width: 711px;
-            height: 946px;
+            width: 100%;
+            max-width: 711px;
+            min-height: 946px;
         }
 
         fieldset {
@@ -137,10 +139,16 @@
 
         label,
         #availability-form {
+            margin: 10px 0;
+            width: 115px;
             font-size: 16px;
             font-weight: 400;
             line-height: 24px;
             letter-spacing: 0.0015em;
+        }
+
+        label[for="agree-to-tnc"] {
+            width: fit-content;
         }
 
         #availability-form {
@@ -152,13 +160,16 @@
         }
 
         #for-radio>div {
+            margin: 0;
             justify-content: flex-start;
-            width: 572px;
+            width: 100%;
+            max-width: 572px;
             float: right;
         }
 
         #for-radio label {
-            margin-right: 70px;
+            margin-right: 30px;
+            width: fit-content;
         }
 
         input,
@@ -173,11 +184,13 @@
         select {
             padding: 1em;
             border-radius: 16px;
-            width: 572px;
+            border: 0;
+            width: 100%;
+            max-width: 572px;
         }
 
         input[type="radio"] {
-            margin-right: 16px;
+            margin-right: 10px;
             border: 2px;
             width: 1em;
             height: 1em;
@@ -306,7 +319,8 @@
                     <legend>Book Details</legend>
                     <div class="flx-rw-wr-spbw-ctr">
                         <label for="book-title">Title</label>
-                        <input type="text" id="book-title" name="book-title" required>
+                        <input type="text" id="book-title" name="book-title" required
+                            placeholder="Please enter your book title">
                     </div>
                     <div class="flx-rw-wr-spbw-ctr">
                         <label for="book-genre">Genre</label>
@@ -326,19 +340,23 @@
                     </div>
                     <div class="flx-rw-wr-spbw-ctr">
                         <label for="book-author">Author</label>
-                        <input id="book-author" name="book-author" type="text" required>
+                        <input id="book-author" name="book-author" type="text" required
+                            placeholder="Please enter your book author">
                     </div>
                     <div class="flx-rw-wr-spbw-ctr">
                         <label for="book-publisher">Publisher</label>
-                        <input id="book-publisher" name="book-publisher" type="text" required>
+                        <input id="book-publisher" name="book-publisher" type="text" required
+                            placeholder="Please enter your book publisher">
                     </div>
                     <div class="flx-rw-wr-spbw-ctr">
                         <label for="year-published">Year Published</label>
-                        <input id="year-published" name="year-published" type="number" min="1960" max="2024" required>
+                        <input id="year-published" name="year-published" type="number" min="1960" max="2024" required
+                            placeholder="Please enter the year your book being pubslished">
                     </div>
                     <div class="flx-rw-wr-spbw-ctr">
                         <label for="book-pages">Pages</label>
-                        <input id="book-pages" name="book-pages" type="number" required>
+                        <input id="book-pages" name="book-pages" type="number" required
+                            placeholder="Please enter the number of pages of your book">
                     </div>
                     <div class="flx-rw-wr-spbw-ctr">
                         <label for="book-language">Language</label>
@@ -363,17 +381,20 @@
                         <input id="online-instore" name="book-availability" value="online-instore" type="radio"><label
                             for="online-instore">Online
                             & In store</label>
+
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Registree Details</legend>
                     <div class="flx-rw-wr-spbw-ctr">
                         <label for="registree-name">Name</label>
-                        <input id="registree-name" name="registree-name" type="text" required>
+                        <input id="registree-name" name="registree-name" type="text" required
+                            placeholder="Please enter your name">
                     </div>
                     <div class="flx-rw-wr-spbw-ctr">
                         <label for="registree-email">Email</label>
-                        <input id="registree-email" name="registree-email" type="email" required>
+                        <input id="registree-email" name="registree-email" type="email" required
+                            placeholder="Please enter your email address">
                     </div>
                 </fieldset>
                 <div>
