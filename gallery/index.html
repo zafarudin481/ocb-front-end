@@ -13,13 +13,14 @@
             font-weight: 400;
         }
 
+        /* Header Styling */
+
         header {
             height: fit-content;
             background-image: url('image/pexels-recepcelikphoto-11259955.jpg');
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            /* background-attachment: fixed; */
             background-size: cover;
-            /* Photo by Recep ÇELİK: https://www.pexels.com/photo/a-white-daisy-flowers-in-full-bloom-11259955/ */
         }
 
         nav {
@@ -48,11 +49,30 @@
             --bs-border-radius: 0px;
         }
 
-        #photo-credit {
+        #photo-credit,
+        #home-link {
             font-weight: 600;
             color: white;
             text-shadow: 1px 1px 3px black;
             text-decoration: none;
+        }
+
+        /* Main styling */
+
+        main {
+            width: 100%;
+        }
+
+        main p {
+            font-weight: bold;
+        }
+
+        /* Footer Styling */
+
+        footer {
+            width: 100%;
+            background-color: black;
+            color: white;
         }
     </style>
 </head>
@@ -60,7 +80,7 @@
 <body>
     <header>
         <nav class="p-3 d-flex flex-column flex-sm-row justify-content-between align-items-center row-gap-3">
-            <a href=""><img src="" alt="MY Photo Gallery Logo"></a>
+            <a id="home-link" href="index.html">MY Photo Gallery</a>
             <ul id="nav-bar-menu" class="d-flex flex-row justify-content-between align-items-center column-gap-4">
                 <li>Gallery</li>
                 <li>News</li>
@@ -72,7 +92,7 @@
         <div id="hero-banner"
             class="py-5 container d-flex flex-column justify-content-center align-items-center row-gap-3">
             <div class="row col-10 col-md-8">
-                <h1 class="p-0">Your free stock photo and image, for your creative content, all year round.</h1>
+                <h1 class="p-0">Free stock photo and image, for your creative content, all year round.</h1>
             </div>
             <div class="row col-10 col-md-8">
                 <form action="post" target="index.html" class="container">
@@ -90,9 +110,57 @@
         </div>
     </header>
     <main>
-        <h2>Free Stock Photo</h2>
+        <div class="container py-4 px-3">
+            <div class="row gy-3">
+                <div class="col-12 order-sm-2 col-sm-9">
+                    <div class="row gy-1 justify-content-end">
+                        <div class="col-12 col-sm-auto">
+                            <p class="mb-0">Explore Other Categories:</p>
+                        </div>
+                        <div class="col-12 col-sm-auto">
+                            <button type="button" class="btn btn-sm btn-outline-dark">Space</button>
+                            <button type="button" class="btn btn-sm btn-outline-dark">Landscape</button>
+                            <button type="button" class="btn btn-sm btn-outline-dark">Food</button>
+                            <button type="button" class="btn btn-sm btn-outline-dark">Office</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 order-sm-1 col-sm-3">
+                    <p class="mb-0">Home</p>
+                </div>
+            </div>
+            <div class="row row-cols-sm-3 row-cols-xl-4 row-cols-xxl-5 g-3 pt-3">
+                <img class="col" src="image/pexels-alexquezada-27938537.jpg" alt="Photo by Alexquezada">
+                <img class="col" src="image/pexels-alisha-jean-2046172246-29178585.jpg" alt="Photo by Alisha Jean">
+                <img class="col" src="image/pexels-asemirski-29101851.jpg" alt="Photo by Asemirski">
+                <img class="col" src="image/pexels-botanphotography-29267769.jpg" alt="Photo by Botan Photography">
+                <img class="col col-sm-8 col-xl-9" src="image/pexels-botanphotography-29267764.jpg"
+                    alt="Photo by Botan Photography">
+                <img class="col" src="image/pexels-iitsbruna-22873652.jpg" alt="Photo by Iitsbruna">
+                <img class="col" src="image/pexels-james-mirakian-774977502-28887955.jpg" alt="Photo by James Mirakian">
+                <img class="col" src="image/pexels-liv-rae-722721640-28714404.jpg" alt="Photo by Liv Rae">
+                <img class="col" src="image/pexels-muverrihhanim-17525263.jpg" alt="Photo by Muverrihhanim">
+                <img class="col" src="image/pexels-opticaltimeline-29145096.jpg" alt="Photo by Optical Timeline">
+                <img class="col col-sm-8 col-xl-9" src="image/pexels-stephen-leonardi-587681991-28133540.jpg"
+                    alt="Photo by Stephen Leonardi">
+                <img class="col" src="image/pexels-skylake-27915654.jpg" alt="Photo by Skylake">
+                <img class="col" src="image/pexels-thanh-luu-29104820-27772446.jpg" alt="Photo by Thanh Luu">
+                <img class="col" src="image/pexels-bylukemiller-27524853.jpg" alt="Photo by Luke Miller">
+                <img class="col" src="image/pexels-jamaal-hutchinson-675024091-29115132.jpg"
+                    alt="Photo by Jamaal Hutchinson">
+            </div>
+        </div>
     </main>
-
+    <footer>
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center p-3 row-gap-1">
+            <ul id="footer-menu" class="d-flex flex-row justify-content-between align-items-center column-gap-4">
+                <li>Terms of Use</li>
+                <li>Privacy Policy</li>
+                <li>Licence</li>
+            </ul>
+            <p class="mb-0">&copy;2024 MY Photo Gallery</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
