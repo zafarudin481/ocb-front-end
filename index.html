@@ -15,7 +15,8 @@
             font-size: 16px;
         }
 
-        header {
+        header,
+        footer {
             background-color: #001f3f;
             color: white;
         }
@@ -27,7 +28,7 @@
         .section-header {
             background-color: #3a6d8c;
             color: white;
-            padding: 1em;
+            padding: 0.5rem 1rem;
             border-radius: 0.75rem 0.75rem 0 0;
             text-shadow: 1px 1px 3px black;
         }
@@ -38,6 +39,7 @@
             border-radius: 0 0 0.75rem 0.75rem;
         }
 
+        footer p:last-of-type,
         .section-content p:last-of-type {
             margin-bottom: 0;
         }
@@ -47,9 +49,21 @@
         }
 
         .section-content article:not(:last-child) {
-            padding-bottom: 0.5rem;
-            margin-bottom: 0.5rem;
+            padding-bottom: 0.75rem;
+            margin-bottom: 0.75rem;
             border-bottom: 2px dotted rgb(64, 64, 64);
+        }
+
+        header a,
+        header a:visited,
+        footer a,
+        footer a:visited {
+            color: white;
+        }
+
+        header a:hover,
+        footer a:hover {
+            color: rgb(255, 128, 128);
         }
 
         a {
@@ -68,17 +82,20 @@
 </head>
 
 <body>
-    <header class="px-4 py-2 mb-3">
-        <nav class="d-flex flex-row justify-content-between align-items-center">
-            <div>
-                <h1 id="page-name" class="mb-1">Zafarudin's Info</h1>
-                <p class="mb-0">Butterworth, Penang</p>
+    <header class="py-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <nav class="col-10 d-flex flex-row justify-content-between align-items-center">
+                    <div>
+                        <h1 id="page-name" class="mb-1"><a href="index.html">Zafarudin's Info</a></h1>
+                        <p class="mb-0">Butterworth, Penang</p>
+                    </div>
+                    <a href="#contact-info">
+                        <button type="button" class="btn btn-light btn-sm">Contact Info</button>
+                    </a>
+                </nav>
             </div>
-            <a href="https://github.com/zafarudin481/ocb-test" target="_blank">
-                <button type="button" class="btn btn-light btn-sm">My Repository</button>
-            </a>
-
-        </nav>
+        </div>
     </header>
     <main>
         <section id="about-me" class="container">
@@ -153,7 +170,7 @@
                         <h6>Intership Trainee, Lumut, Perak</h6>
                         <p class="mb-2">June 2012 - December 2012</p>
                         <ul>
-                            <li>Responsible to creates shop drawings of the structure constructed.</li>
+                            <li>Responsible to creates shop drawings of the constructed structure.</li>
                             <li>Performing quantity surveys of material demolished and constructed.</li>
                         </ul>
                     </article>
@@ -173,10 +190,24 @@
                         <p class="mb-2">July 2008 - September 2013</p>
                         <ul>
                             <li>Done my degree in one of the higher learning institution in Perak.</li>
-                            <li>As a students, I was exposed to the technical knowledge as well as hands-on experience
-                                in electronics.</li>
-                            <li>The course cover basic electronics, electronic fault finding, basic PLC, basic digital
-                                and also electronic trouble shooting.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="container">
+            <div class="row justify-content-center">
+                <div class="section-header col-10">
+                    <h2 class="mb-0">Skills</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="section-content col-10">
+                    <article>
+                        <ul>
+                            <li>Microsoft Word</li>
+                            <li>Microsoft Excel</li>
+                            <li>Adobe Photoshop</li>
                         </ul>
                     </article>
                 </div>
@@ -194,7 +225,7 @@
                         made as a weekly assignments.</p>
                     <p class="mb-2">The projects are as follows:</p>
                     <article>
-                        <h6><a href="bookshelf/index.html" target="_blank">Fictional Online Bookstore</a></h6>
+                        <h6><a href="bookshelf/index.html" target="_blank">Fictional Online Bookstore Home Page</a></h6>
                         <ul>
                             <li>This web page was created by referencing a design from Figma Community.</li>
                             <li>The main objective of this project is to learn how to make the web page responsive to
@@ -207,9 +238,18 @@
                                 Registration</a></h6>
                         <ul>
                             <li>This web page was created by referencing a design from Figma Community.</li>
-                            <li>The main objective of this project is to learn how to make the web page responsive to
-                                window resizing.</li>
-                            <li>This project was purely style by using vanilla CSS.</li>
+                            <li>The main objective of this project is to learn how to use the several elements to
+                                increase interactivity such as; form, label and input; as well as to make the web page
+                                responsive to window resizing.</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h6><a href="gallery/index.html" target="_blank">Fictional Photo Gallery</a></h6>
+                        <ul>
+                            <li>This web page was created by referencing Pexels.com home page.</li>
+                            <li>The main focus of this project is to apply Bootstrap classes in doing styling as well as
+                                utilizing the Bootstrap breakpoint to create a responsive web page that adapt to
+                                different screen size of various devices.</li>
                         </ul>
                     </article>
                 </div>
@@ -229,7 +269,8 @@
                         <ul>
                             <li>This certificate program is under Google Gemilang which is in partnership with
                                 Trainocate Malaysia.</li>
-                            <li>The courses was taken through Coursera.</li>
+                            <li>The courses was taken in part-time mode through Coursera and it's take 5 months to
+                                finish.</li>
                             <li>The courses include preparing, processing and analyzing data, before translating the
                                 analysis result into visualization which is then shared with stakeholders.</li>
                         </ul>
@@ -257,9 +298,46 @@
                 </div>
             </div>
         </section>
+        <section id="contact-info" class="container">
+            <div class="row justify-content-center">
+                <div class="section-header col-10">
+                    <h2 class="mb-0">Contact Information</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="section-content col-10">
+                    <div class="row">
+                        <div class="col-5 col-md-3 pe-0">
+                            <p>Email</p>
+                        </div>
+                        <div class="col-auto ps-0">
+                            <p>: zafarudin@example.com</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5 col-md-3 pe-0">
+                            <p>Phone Number</p>
+                        </div>
+                        <div class="col-auto ps-0">
+                            <p>: +6012 - 345 6789</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5 col-md-3 pe-0">
+                            <p>My Repository</p>
+                        </div>
+                        <div class="col-auto ps-0">
+                            <span>: </span>
+                            <a href="https://github.com/zafarudin481/ocb-test"
+                                target="_blank">@zafarudin481/ocb-test</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <section></section>
+    <footer class="px-4 py-2 text-center">
+        <p>&copy;2024 Copyright of <a href="index.html">Zafarudin's Info</a></p>
     </footer>
 
     <script>
