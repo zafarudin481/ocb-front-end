@@ -69,34 +69,47 @@
                     <div class="col-10">
                         <div id="quiz-container-test">
                             <div id="quiz-header" class="p-4">
-                                <h4 class="m-0">Markah anda: 0/10</h4>
+                                <h4 class="m-0">Markah anda: <span id="user-score">0</span>/10</h4>
                             </div>
                             <div id="quiz-content" class="p-4 text-start">
                                 <p class="fs-5">Apakah bunga kebangsaan Malaysia?</p>
                                 <fieldset id="answer-option" class="mb-4">
                                     <div class="d-flex flex-column gap-1 fs-5">
                                         <div>
-                                            <input id="bunga-ros" name="user-answer" value="0" type="radio">
-                                            <label for="bunga-ros">Bunga Ros</label>
+                                            <input id="option-1" name="user-answer" value="0" type="radio">
+                                            <label for="option-1">Bunga Ros</label>
                                         </div>
                                         <div>
-                                            <input id="bunga-kertas" name="user-answer" value="1" type="radio">
-                                            <label for="bunga-kertas">Bunga Kertas</label>
+                                            <input id="option-2" name="user-answer" value="1" type="radio">
+                                            <label for="option-2">Bunga Kertas</label>
                                         </div>
                                         <div>
-                                            <input id="bunga-raya" name="user-answer" value="2" type="radio">
-                                            <label for="bunga-raya">Bunga Raya</label>
+                                            <input id="option-3" name="user-answer" value="2" type="radio">
+                                            <label for="option-3">Bunga Raya</label>
                                         </div>
                                     </div>
                                 </fieldset>
-                                <div class="d-flex flex-row justify-content-center gap-3">
-                                    <button id="submit-button" class="btn btn-primary btn-md">Hantar</button>
-                                    <button id="next-button" class="btn btn-primary btn-md">Seterusnya</button>
+
+                                <div class="container">
+                                    <div class="row g-2 g-md-4">
+                                        <div class="col-6 col-md-4 d-grid">
+                                            <button id="submit-button" class="btn btn-primary btn-md">Hantar</button>
+                                        </div>
+                                        <div class="col-6 col-md-4 d-grid">
+                                            <button id="next-button"
+                                                class="btn btn-secondary btn-md">Seterusnya</button>
+                                        </div>
+                                        <div class="col-12 col-md-4 d-grid">
+                                            <button id="restart-button" class="btn btn-secondary btn-md">Mula
+                                                Semula</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     </main>
