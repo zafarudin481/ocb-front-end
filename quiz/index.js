@@ -110,14 +110,16 @@ function initiateEventListener() {
     })
 }
 
-// function to submit answer <======================================================= continue here
+// function to submit answer
 function submitAnswer() {
     const answerInput = document.querySelector('input[name = "user-answer"]:checked');
 
     if (answerInput != null) {          // test if something was checked
-        checkAnswer(answerInput);        // test if answer is correct or wrong
+        disableSubmitButton();
+        const answerStatus = checkAnswer(answerInput) == true ? alert("true") : alert("false");
+        // enable next button
     } else {
-        alert('Nothing checked');       // alert, nothing was checked.
+        alert("Sila pilih jawapan sebelum hantar");
     }
 }
 
@@ -126,12 +128,17 @@ function checkAnswer(userAnswer) {
     const correctAnswer = quizSets[sessionCounter];
 
     if (userAnswer.value == correctAnswer.answerIndex) {
-        alert("Jawapan anda betul");
+        // let updateScore = userScore + 1; <======================================================continue here
+        // userScore = updateScore;
+        return true;
     } else {
-        alert("Jawapan anda salah")
+        return false;
     }
 }
 
-
-
+// function to disable submit button
+function disableSubmitButton() {
+    const submitButton = document.getElementById("submit-button");
+    submitButton.setAttribute("class", "btn btn-primary btn-md disabled");
+}
 
