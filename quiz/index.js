@@ -26,8 +26,8 @@ function initiateQuiz() {
         '<h4 class="m-0">Markah anda: <span id="user-score">' + userScore + '</span>/10</h4>' +
         '</div>' +
         '<div id="quiz-content" class="p-4 text-start">' +
-        '<p class="fs-5 text-md-center mb-0 fw-bold">Soalan ' + sessionCounter + ':</p>' +
-        '<p class="fs-5 text-md-center">' + quizSet.question + '</p>' +
+        '<p class="fs-5 text-md-center mb-0 fw-bold">Soalan <span id="question-number-display">' + sessionCounter + '</span>:</p>' +
+        '<p class="fs-5 text-md-center" id="question-display">' + quizSet.question + '</p>' +
         '<fieldset id="answer-option" class="mb-4">' +
         '<div class="d-flex flex-column gap-1 fs-5 col-md-6 mx-md-auto">' +
         '<div>' +
@@ -44,8 +44,12 @@ function initiateQuiz() {
         '</div>' +
         '</div>' +
         '</fieldset>' +
-
         '<div class="container">' +
+        '<div class="row text-center justify-content-center">' +
+        '<div id="alert-display" class="col-12 col-md-6">' +
+        // alert location
+        '</div>' +
+        '</div>' +
         '<div class="row g-2 g-md-4">' +
         '<div class="col-6 col-md-4 d-grid">' +
         '<button id="submit-button" class="btn btn-primary btn-md disabled">Hantar</button>' +
@@ -89,13 +93,14 @@ function initiateButtonEventListener() {
     // event listener to next question
     const nextButton = document.getElementById("next-button");
     const nextAlert = nextButton.addEventListener("click", function () {
-        alert("butang seterusnya sudah ditekan")
+        alert("butang seterusnya sudah ditekan") // <======================================= next question start here
+        nextQuestion();
     })
 
     // event listener to restart quiz
     const restartButton = document.getElementById("restart-button");
     const restartAlert = restartButton.addEventListener("click", function () {
-        alert("butang mula semula sudah ditekan");
+        location.reload();
     })
 }
 
@@ -119,7 +124,7 @@ function submitAnswer() {
 
     if (answerInput != null) {          // test if something was checked
         disableSubmitButton();
-        checkAnswer(answerInput) == true ? updateUserScore() : alert("false"); // update score should be here
+        checkAnswer(answerInput) == true ? updateUserScore() : alert("false");
         disableInput();
         enableNextButton();
     } else {
@@ -144,6 +149,24 @@ function checkAnswer(userAnswer) {
     }
 }
 
+// function to update score
+function updateUserScore() {
+    // update userScore variable
+    let updatedScore = userScore + 1;
+    userScore = updatedScore;
+
+    // update score at the quiz header
+    const scoreDisplay = document.getElementById("user-score");
+    scoreDisplay.innerHTML = userScore;
+
+    // diplay an alert informing right answer
+    const alertDisplay = document.getElementById("alert-display");
+    alertDisplay.innerHTML =
+        '<div class="alert alert-success" role="alert">' +
+        'Jawapan anda betul!' +
+        '</div>';
+}
+
 // function to disabled input
 function disableInput() {
     const input = document.getElementsByName("user-answer");
@@ -163,15 +186,22 @@ function enableNextButton() {
 
 
 
+// function to go to next question
+function nextQuestion() {
+    // update sessionCounter variable
+    const updatedSessionCounter = sessionCounter + 1;
+    sessionCounter = updatedSessionCounter;
 
-// function to update score
-function updateUserScore() {
-    // update userScore variable
-    let updatedScore = userScore + 1;
-    userScore = updatedScore;
+    // get element which display will be updated for next question
+    const questionNoDisplay = document.getElementById("question-number-display");
+    const questionDisplay = document.getElementById("question-display");
+    const answerOptionDisplay1 = document.querySelector('label[for="option-1"]');
+    const answerOptionDisplay2 = document.querySelector('label[for="option-2"]');
+    const answerOptionDisplay3 = document.querySelector('label[for="option-3"]');
 
-    // update score at the quiz header
-    const scoreDisplay = document.getElementById("user-score");
-    scoreDisplay.innerHTML = userScore;
-
+    console.log(questionNoDisplay);
+    console.log(questionDisplay);
+    console.log(answerOptionDisplay1);
+    console.log(answerOptionDisplay2);
+    console.log(answerOptionDisplay3);
 }
