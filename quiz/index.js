@@ -7,8 +7,8 @@ const quizSets = quizList;
 const initiateButton = document.getElementById("initiate-button");
 const initiateAction = initiateButton.addEventListener("click", function () {
     initiateQuiz();
-    enableSubmitButton();
-    initiateEventListener();
+    initiateButtonEventListener();
+    listenToInputChange();
 })
 
 // function to initiate the quiz
@@ -51,7 +51,7 @@ function initiateQuiz() {
         '<button id="submit-button" class="btn btn-primary btn-md disabled">Hantar</button>' +
         '</div>' +
         '<div class="col-6 col-md-4 d-grid">' +
-        '<button id="next-button" class="btn btn-secondary btn-md">Seterusnya</button>' +
+        '<button id="next-button" class="btn btn-primary btn-md disabled">Seterusnya</button>' +
         '</div>' +
         '<div class="col-12 col-md-4 d-grid">' +
         '<button id="restart-button" class="btn btn-secondary btn-md">Mula Semula</button>' +
@@ -78,19 +78,8 @@ function getQuizSet(sessionCounter, quizSets) {
     }
 }
 
-// function to enable submit button after answer is chosen
-function enableSubmitButton() {
-    const input = document.getElementsByName("user-answer");
-    input.forEach((input) => {
-        input.addEventListener("change", function () {
-            const submitButton = document.getElementById("submit-button");
-            submitButton.setAttribute("class", "btn btn-primary btn-md");
-        })
-    })
-}
-
 // function to initiate quiz session button event listener
-function initiateEventListener() {
+function initiateButtonEventListener() {
     // event listener to submit answer
     const submitButton = document.getElementById("submit-button");
     const submitAlert = submitButton.addEventListener("click", function () {
@@ -110,29 +99,31 @@ function initiateEventListener() {
     })
 }
 
+// function to enable submit button after answer is chosen
+function listenToInputChange() {
+    const input = document.getElementsByName("user-answer");
+    input.forEach((input) => {
+        input.addEventListener("change", enableSubmitButton);
+    })
+}
+
+// function to enable submit button
+function enableSubmitButton() {
+    const submitButton = document.getElementById("submit-button");
+    submitButton.setAttribute("class", "btn btn-primary btn-md");
+}
+
 // function to submit answer
 function submitAnswer() {
     const answerInput = document.querySelector('input[name = "user-answer"]:checked');
 
     if (answerInput != null) {          // test if something was checked
         disableSubmitButton();
-        const answerStatus = checkAnswer(answerInput) == true ? alert("true") : alert("false");
-        // enable next button
+        checkAnswer(answerInput) == true ? updateUserScore() : alert("false"); // update score should be here
+        disableInput();
+        enableNextButton();
     } else {
         alert("Sila pilih jawapan sebelum hantar");
-    }
-}
-
-// function to check answer is correct or wrong
-function checkAnswer(userAnswer) {
-    const correctAnswer = quizSets[sessionCounter];
-
-    if (userAnswer.value == correctAnswer.answerIndex) {
-        // let updateScore = userScore + 1; <======================================================continue here
-        // userScore = updateScore;
-        return true;
-    } else {
-        return false;
     }
 }
 
@@ -142,3 +133,45 @@ function disableSubmitButton() {
     submitButton.setAttribute("class", "btn btn-primary btn-md disabled");
 }
 
+// function to check answer is correct or wrong
+function checkAnswer(userAnswer) {
+    const correctAnswer = quizSets[sessionCounter];
+
+    if (userAnswer.value == correctAnswer.answerIndex) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// function to disabled input
+function disableInput() {
+    const input = document.getElementsByName("user-answer");
+    input.forEach((input) => {
+        input.setAttribute("disabled", "");
+    })
+
+}
+
+// function to enable next button
+function enableNextButton() {
+    const nextButton = document.getElementById("next-button");
+    nextButton.setAttribute("class", "btn btn-primary btn-md");
+}
+
+// ============================================================================
+
+
+
+
+// function to update score
+function updateUserScore() {
+    // update userScore variable
+    let updatedScore = userScore + 1;
+    userScore = updatedScore;
+
+    // update score at the quiz header
+    const scoreDisplay = document.getElementById("user-score");
+    scoreDisplay.innerHTML = userScore;
+
+}
