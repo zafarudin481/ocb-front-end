@@ -24,7 +24,8 @@
         }
 
         #quiz-container,
-        #quiz-container-test {
+        #quiz-container-test-finish,
+        #quiz-container-test-session {
             background: linear-gradient(-45deg, rgb(255, 0, 168) 5%, rgb(255, 128, 255) 75%) 10%;
             border-radius: 1rem;
         }
@@ -34,11 +35,15 @@
             border-radius: 1rem 1rem 0 0;
             color: white;
         }
+
+        #footer-margin {
+            margin: 4.5rem 0;
+        }
     </style>
 </head>
 
 <body>
-    <header>
+    <header class="position-sticky top-0 start-0">
         <div class="container text-center">
             <div class="row">
                 <div class="col">
@@ -50,7 +55,7 @@
 
     <main>
         <section>
-            <div class="container text-center my-5">
+            <div class="container text-center my-3 my-md-5">
                 <div class="row justify-content-center">
                     <div class="col-10">
                         <div id="quiz-container">
@@ -63,63 +68,9 @@
                 </div>
             </div>
         </section>
-        <section id="test-section" class="mt-5">
-            <div class="container text-center my-5">
-                <div class="row justify-content-center">
-                    <div class="col-10">
-                        <div id="quiz-container-test">
-                            <div id="quiz-header" class="p-4">
-                                <h4 class="m-0">Markah anda: <span id="user-score">0</span>/10</h4>
-                            </div>
-                            <div id="quiz-content" class="p-4 text-start">
-                                <p class="fs-5 text-md-center mb-0 fw-bold">Soalan 1:</p>
-                                <p class="fs-5 text-md-center">Apakah bunga kebangsaan Malaysia?</p>
-                                <fieldset id="answer-option" class="mb-4">
-                                    <div class="d-flex flex-column gap-1 fs-5 col-md-6 mx-md-auto">
-                                        <div>
-                                            <input id="option-1" name="user-answer" value="0" type="radio">
-                                            <label for="option-1">Bunga Ros</label>
-                                        </div>
-                                        <div>
-                                            <input id="option-2" name="user-answer" value="1" type="radio">
-                                            <label for="option-2">Bunga Kertas</label>
-                                        </div>
-                                        <div>
-                                            <input id="option-3" name="user-answer" value="2" type="radio">
-                                            <label for="option-3">Bunga Raya</label>
-                                        </div>
-                                    </div>
-                                </fieldset>
-
-                                <div class="container">
-                                    <div class="row text-center justify-content-center">
-                                        <div class="col-12 col-md-6">
-
-                                        </div>
-                                    </div>
-                                    <div class="row g-2 g-md-4">
-                                        <div class="col-6 col-md-4 d-grid">
-                                            <button id="submit-button"
-                                                class="btn btn-primary btn-md disabled">Hantar</button>
-                                        </div>
-                                        <div class="col-6 col-md-4 d-grid">
-                                            <button id="next-button"
-                                                class="btn btn-secondary btn-md disabled">Seterusnya</button>
-                                        </div>
-                                        <div class="col-12 col-md-4 d-grid">
-                                            <button id="restart-button" class="btn btn-secondary btn-md">Mula
-                                                Semula</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
     </main>
+
+    <div id="footer-margin"></div>
 
     <footer class="position-fixed bottom-0 start-0">
         <div class="container text-center">
