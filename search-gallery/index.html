@@ -82,12 +82,12 @@
         <nav class="p-3">
             <div class="container text-center">
                 <div class="row gy-3 justify-content-between align-items-center">
-                    <div class="col-12 col-md-2">
+                    <div class="col-12 col-md-auto">
                         <a id="home-link" href="index.html">MY Photo Gallery</a>
                     </div>
                     <div class="col-12 col-md-auto">
                         <ul id="nav-bar-menu"
-                            class="d-flex flex-row justify-content-between align-items-center column-gap-4">
+                            class="d-flex flex-row justify-content-center justify-content-md-between align-items-center column-gap-4">
                             <li>Gallery</li>
                             <li>News</li>
                             <li>Blog</li>
@@ -127,7 +127,7 @@
         const photoCredit = document.getElementById('photo-credit')
         var imageHeader
 
-        fetch('https://api.pexels.com/v1/search?query=space&per_page=1', {
+        fetch('https://api.pexels.com/v1/search?query=nature&per_page=1', {
             headers: {
                 'Authorization': `${pexelsKey}`
             }
@@ -184,7 +184,7 @@
             </div>
         </div>
     </main>
-    <footer>
+    <footer class="position-sticky start-0 bottom-0">
         <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center p-3 row-gap-1">
             <ul id="footer-menu" class="d-flex flex-row justify-content-between align-items-center column-gap-4">
                 <li>Terms of Use</li>
