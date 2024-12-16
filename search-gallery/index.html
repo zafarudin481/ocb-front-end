@@ -81,7 +81,7 @@
     <header>
         <nav class="p-3">
             <div class="container text-center">
-                <div class="row gy-3 justify-content-between align-items-center">
+                <div class="row gy-2 justify-content-between align-items-center">
                     <div class="col-12 col-md-auto">
                         <a id="home-link" href="index.html">MY Photo Gallery</a>
                     </div>
@@ -101,7 +101,7 @@
             </div>
         </nav>
         <div id="hero-banner"
-            class="py-5 container d-flex flex-column justify-content-center align-items-center row-gap-3">
+            class="py-3 py-md-5 container d-flex flex-column justify-content-center align-items-center row-gap-3">
             <div class="row col-10 col-md-8">
                 <h1 class="p-0">Free stock photo and image, for your creative content, all year round.</h1>
             </div>
@@ -115,32 +115,12 @@
             </div>
         </div>
         <div class="d-flex flex-row justify-content-end align-items-end p-2">
-            <a id="photo-credit" href="https://www.pexels.com/photo/a-white-daisy-flowers-in-full-bloom-11259955/"></a>
+            <a id="photo-credit" href="" alt=""></a>
         </div>
     </header>
 
     <script type='text/javascript' src='config.js'></script>
-    <script>
-        var pexelsKey = config.PEXELS_KEY
-
-        const backgroundImage = document.querySelector('header')
-        const photoCredit = document.getElementById('photo-credit')
-        var imageHeader
-
-        fetch('https://api.pexels.com/v1/search?query=nature&per_page=1', {
-            headers: {
-                'Authorization': `${pexelsKey}`
-            }
-        })
-            .then(response => response.json())
-            .then(body => {
-                imageHeader = body.photos[0]
-                backgroundImage.style.backgroundImage = `url('${imageHeader.src.original}')`
-                photoCredit.innerHTML = `Photo by ${imageHeader.photographer}`
-
-            })
-            .catch(err => { debugger })
-    </script>
+    <script type='text/javascript' src='header-background.js'></script>
 
     <main>
         <div class="container py-4 px-3">
@@ -162,28 +142,14 @@
                     <p class="mb-0">Home</p>
                 </div>
             </div>
-            <div class="row row-cols-sm-3 row-cols-xl-4 row-cols-xxl-5 g-3 pt-3">
-                <img class="col" src="image/pexels-alexquezada-27938537.jpg" alt="Photo by Alexquezada">
-                <img class="col" src="image/pexels-alisha-jean-2046172246-29178585.jpg" alt="Photo by Alisha Jean">
-                <img class="col" src="image/pexels-asemirski-29101851.jpg" alt="Photo by Asemirski">
-                <img class="col" src="image/pexels-botanphotography-29267769.jpg" alt="Photo by Botan Photography">
-                <img class="col col-sm-8 col-xl-9" src="image/pexels-botanphotography-29267764.jpg"
-                    alt="Photo by Botan Photography">
-                <img class="col" src="image/pexels-iitsbruna-22873652.jpg" alt="Photo by Iitsbruna">
-                <img class="col" src="image/pexels-james-mirakian-774977502-28887955.jpg" alt="Photo by James Mirakian">
-                <img class="col" src="image/pexels-liv-rae-722721640-28714404.jpg" alt="Photo by Liv Rae">
-                <img class="col" src="image/pexels-muverrihhanim-17525263.jpg" alt="Photo by Muverrihhanim">
-                <img class="col" src="image/pexels-opticaltimeline-29145096.jpg" alt="Photo by Optical Timeline">
-                <img class="col col-sm-8 col-xl-9" src="image/pexels-stephen-leonardi-587681991-28133540.jpg"
-                    alt="Photo by Stephen Leonardi">
-                <img class="col" src="image/pexels-skylake-27915654.jpg" alt="Photo by Skylake">
-                <img class="col" src="image/pexels-thanh-luu-29104820-27772446.jpg" alt="Photo by Thanh Luu">
-                <img class="col" src="image/pexels-bylukemiller-27524853.jpg" alt="Photo by Luke Miller">
-                <img class="col" src="image/pexels-jamaal-hutchinson-675024091-29115132.jpg"
-                    alt="Photo by Jamaal Hutchinson">
+            <div id="photos-container" class="row row-cols-sm-3 row-cols-xl-4 row-cols-xxl-5 g-3 pt-3">
+                <!-- home photos will be displayed here -->
             </div>
         </div>
     </main>
+
+    <script type='text/javascript' src='home-photos.js'></script>
+
     <footer class="position-sticky start-0 bottom-0">
         <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center p-3 row-gap-1">
             <ul id="footer-menu" class="d-flex flex-row justify-content-between align-items-center column-gap-4">
