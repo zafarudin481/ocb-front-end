@@ -8,6 +8,7 @@ fetchPhotos()
 
 // function to fetch and display photos
 function fetchPhotos(url = 'https://api.pexels.com/v1/curated') {
+    showLoadingSpinners(true);
     fetch(url, {
         headers: {
             'Authorization': `${pexelsKey}`
@@ -23,17 +24,33 @@ function fetchPhotos(url = 'https://api.pexels.com/v1/curated') {
             photosList.forEach((image) => {
                 updateHomePhotos(image)
             });
+            showLoadingSpinners(false);
         })
-        .catch(err => { debugger })
+        .catch(err => {
+            alertError(err.message)
+        })
 }
 
 // function to insert list of photos into photos container
 function updateHomePhotos(image) {
-    homeImages.innerHTML += `<img class='col' src="${image.src.portrait}" alt="${image.alt}">` +
-        `<div class="position-absolute bottom-0 end-0"><a href="${image.url}">Photos by ${image.photographer}</a></div>`
+    homeImages.innerHTML += `<div class="col"><img src="${image.src.portrait}" alt="${image.alt}">` +
+        `<a href="${image.url}">Photos by ${image.photographer}</a></div>`
 }
 
 // function to load more home photos
 function loadHomePhotos() {
     fetchPhotos(nextPageURL);
+}
+
+// function to show loading spinners
+function showLoadingSpinners(status) {
+    const loadingSpinner = document.getElementById('loading-spinner')
+    const loadMoreButton = document.getElementById('load-more')
+    let visibility
+    let notVisibility
+
+    status == true ? (visibility = "visible", notVisibility = "invisible") : (visibility = "invisible", notVisibility = "visible");
+
+    loadingSpinner.setAttribute("class", `spinner-border text-primary ${visibility}`)
+    loadMoreButton.setAttribute("class", `btn btn-primary ${notVisibility}`)
 }

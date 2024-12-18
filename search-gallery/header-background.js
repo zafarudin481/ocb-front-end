@@ -15,4 +15,11 @@ fetch('https://api.pexels.com/v1/search?query=nature&per_page=10', {
         photoCredit.setAttribute('alt', `${imageHeader.alt}`)
         photoCredit.innerHTML = `Photo by ${imageHeader.photographer}`
     })
-    .catch(err => { debugger })
+    .catch(err => {
+        alertError(err.message)
+    })
+
+// function to handle error message
+function alertError(message) {
+    alert(message);
+}

@@ -28,6 +28,7 @@ function validateInput() {
 
 // function to search photos through API
 function fetchSearch(url) {
+    showLoadingSpinners(true);
     fetch(url, {
         headers: {
             'Authorization': `${pexelsKey}`
@@ -43,14 +44,18 @@ function fetchSearch(url) {
             photosList.forEach((image) => {
                 updateSearchedPhotos(image);
             });
+            showLoadingSpinners(false);
         })
-        .catch(err => { debugger })
+        .catch(err => {
+            alertError(err.message)
+        })
 }
 
 
 // function to insert list of searched photos into searched photos container
 function updateSearchedPhotos(image) {
-    searchContainer.innerHTML += `<img class='col' src="${image.src.portrait}" alt="${image.alt}">`
+    searchContainer.innerHTML += `<div class="col"><img src="${image.src.portrait}" alt="${image.alt}">` +
+        `<a href="${image.url}">Photos by ${image.photographer}</a></div>`
 }
 
 // function to update the container title

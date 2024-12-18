@@ -67,6 +67,28 @@
             font-weight: bold;
         }
 
+        /* photos container styling */
+
+        #photos-container img {
+            max-width: 100%;
+            width: 100%
+        }
+
+        #photos-container div.col {
+            position: relative;
+        }
+
+        #photos-container a {
+            position: absolute;
+            bottom: 5px;
+            right: 15px;
+            font-weight: 600;
+            color: white;
+            text-shadow: 1px 1px 3px black;
+            text-decoration: none;
+            text-align: right;
+        }
+
         /* Footer Styling */
 
         footer {
@@ -107,12 +129,11 @@
             </div>
             <div class="row col-10 col-md-8">
                 <div class="container">
-                    <div class="row">
+                    <form class="row" onsubmit="searchPhotos(); return false">
                         <input type="text" id="search-photos" name="search-photos" placeholder="Search your photo"
                             class="col-8 col-md-10">
-                        <button type="button" onclick="javascript: searchPhotos()"
-                            class="col-4 col-md-2 btn btn-primary">Search</button>
-                    </div>
+                        <button type="button" class="col-4 col-md-2 btn btn-primary">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -127,17 +148,23 @@
     <main>
         <div class="container py-4 px-3">
             <div class="row gy-3">
-                <div class="col-12 col-sm-3">
+                <div class="col-12">
                     <h3 id="container-title" class="mb-0">Home</h3>
                 </div>
             </div>
-            <div id="photos-container" class="row row-cols-sm-3 row-cols-xl-4 row-cols-xxl-5 g-3 pt-3">
+            <div id="photos-container" class="row row-cols-1 row-cols-sm-3 row-cols-xl-4 row-cols-xxl-5 g-3 pt-3">
                 <!-- home photos will be displayed here -->
             </div>
 
-            <div class="text-center mt-4">
-                <button id="load-more" type="button" class="btn btn-primary" onclick="javascript: loadHomePhotos()">Load
-                    More</button>
+            <div id="load-more-container" class="row text-center mt-4">
+                <div class="col d-flex flex-column align-items-center">
+                    <div id="loading-spinner" class="spinner-border text-primary invisible" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <button id="load-more" type="button" class="btn btn-primary visible"
+                        onclick="javascript: loadHomePhotos()">Load
+                        More</button>
+                </div>
             </div>
         </div>
     </main>
