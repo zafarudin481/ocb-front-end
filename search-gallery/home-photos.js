@@ -23,25 +23,17 @@ function fetchPhotos(url = 'https://api.pexels.com/v1/curated') {
             photosList.forEach((image) => {
                 updateHomePhotos(image)
             });
-            onVisible(loadMore, () => fetchPhotos(nextPageURL));
         })
         .catch(err => { debugger })
 }
 
 // function to insert list of photos into photos container
 function updateHomePhotos(image) {
-    homeImages.innerHTML += `<img class='col' src="${image.src.portrait}" alt="${image.alt}">`
+    homeImages.innerHTML += `<img class='col' src="${image.src.portrait}" alt="${image.alt}">` +
+        `<div class="position-absolute bottom-0 end-0"><a href="${image.url}">Photos by ${image.photographer}</a></div>`
 }
 
-// function to trigger load more photos
-function onVisible(element, callback) {
-    new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.intersectionRatio > 0) {
-                callback(element);
-                observer.disconnect();
-            }
-        });
-    }).observe(element);
-    if (!callback) return new Promise(r => callback = r);
+// function to load more home photos
+function loadHomePhotos() {
+    fetchPhotos(nextPageURL);
 }

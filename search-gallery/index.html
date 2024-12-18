@@ -45,7 +45,7 @@
             border-width: 0;
         }
 
-        form button {
+        .row button {
             --bs-border-radius: 0px;
         }
 
@@ -106,12 +106,14 @@
                 <h1 class="p-0">Free stock photo and image, for your creative content, all year round.</h1>
             </div>
             <div class="row col-10 col-md-8">
-                <form action="post" target="index.html" class="container">
+                <div class="container">
                     <div class="row">
-                        <input type="text" name="search-photo" placeholder="Search your photo" class="col-8 col-md-10">
-                        <button type="submit" class="col-4 col-md-2 btn btn-primary">Search</button>
+                        <input type="text" id="search-photos" name="search-photos" placeholder="Search your photo"
+                            class="col-8 col-md-10">
+                        <button type="button" onclick="javascript: searchPhotos()"
+                            class="col-4 col-md-2 btn btn-primary">Search</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         <div class="d-flex flex-row justify-content-end align-items-end p-2">
@@ -125,36 +127,23 @@
     <main>
         <div class="container py-4 px-3">
             <div class="row gy-3">
-                <div class="col-12 order-sm-2 col-sm-9">
-                    <div class="row gy-1 justify-content-end">
-                        <div class="col-12 col-sm-auto">
-                            <p class="mb-0">Explore Other Categories:</p>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <button type="button" class="btn btn-sm btn-outline-dark">Space</button>
-                            <button type="button" class="btn btn-sm btn-outline-dark">Landscape</button>
-                            <button type="button" class="btn btn-sm btn-outline-dark">Food</button>
-                            <button type="button" class="btn btn-sm btn-outline-dark">Office</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 order-sm-1 col-sm-3">
-                    <p class="mb-0">Home</p>
+                <div class="col-12 col-sm-3">
+                    <h3 id="container-title" class="mb-0">Home</h3>
                 </div>
             </div>
             <div id="photos-container" class="row row-cols-sm-3 row-cols-xl-4 row-cols-xxl-5 g-3 pt-3">
                 <!-- home photos will be displayed here -->
             </div>
 
-            <div id="load-more" class="text-center mt-4">
-                <div class="spinner-border" role="status">
-                    <!-- <span class="visually-hidden">Loading...</span> -->
-                </div>
+            <div class="text-center mt-4">
+                <button id="load-more" type="button" class="btn btn-primary" onclick="javascript: loadHomePhotos()">Load
+                    More</button>
             </div>
         </div>
     </main>
 
     <script type='text/javascript' src='home-photos.js'></script>
+    <script type='text/javascript' src='search-photos.js'></script>
 
     <footer class="position-sticky start-0 bottom-0">
         <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center p-3 row-gap-1">
