@@ -37,7 +37,7 @@ function fetchListTodos() {
                 </div>
                 <div id="${todo.id}" class="col-12 col-md-5 d-flex justify-content-center justify-content-md-end align-items-center">
                     <button class="btn btn-${todo.completed == 1 ? 'success' : 'warning'} me-1" onclick="taskStatus(this,${todo.completed})">${todo.completed == 1 ? '<i class="bi bi-check"></i>' : '<i class="bi bi-x"></i>'}</button>
-                    <button class='btn btn-primary me-1' data-bs-toggle="modal" data-bs-target="#editTodo" onclick='selectTodo(${JSON.stringify(todo)})' ><i class="bi bi-pencil"></i></button>
+                    <button class='btn btn-primary me-1' data-bs-toggle="modal" data-bs-target="#editTodo" onclick='updateModal(${JSON.stringify(todo)})' ><i class="bi bi-pencil"></i></button>
                     <button class='btn btn-danger' onclick="deleteTask(this)"><i class="bi bi-trash"></i></button>
                 </div>
             </div>`
@@ -125,34 +125,109 @@ function taskStatus(element, originalStatus) {
 
 // 5.2) delete task function
 function deleteTask(element) {
-    // get the id of the task need to be mark completed
-    const taskID = element.parentNode.id
+    // prompt user to confirm deletion
+    if (confirm("Are you sure you want to delete this task?")) {
+        // get the id of the task need to be mark completed
+        const taskID = element.parentNode.id
 
-    // update the status using fetch function
-    fetch(`https://api.kelasprogramming.com/todo/${taskID}`, {
-        method: 'DELETE',
-        headers: {
-            'Authorization': `Bearer ${todoJWT}`,
-            'Content-type': 'application/json'
-        }
-    })
-        .then((response) => response.json())
-        .then((body) => {
-            fetchListTodos()
-            body.success == true ? alert('Task succesfully deleted') : alert('Task failed to be deleted, please try again');
+        // update the status using fetch function
+        fetch(`https://api.kelasprogramming.com/todo/${taskID}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${todoJWT}`,
+                'Content-type': 'application/json'
+            }
         })
-        .catch((err) => { debugger })
+            .then((response) => response.json())
+            .then((body) => {
+                fetchListTodos()
+                body.success == true ? alert('Task succesfully deleted') : alert('Task failed to be deleted, please try again');
+            })
+            .catch((err) => { debugger })
+    } else {
+        return;
+    }
+}
+
+// 6) global variable declaration for modal window task status update
+let modalTaskStatus
+const taskItem = document.getElementById('todo-update')
+
+// 6.1) function to update task in detailed  using bootsrap modal
+function updateModal(taskDetails) {
+    // get necessary element to show task details in modal window
+    const statusButton = document.getElementById('status-button')
+    const saveButton = document.getElementById('save-button')
+
+    // show task item in modal window
+    taskItem.value = taskDetails.details
+
+    // check to see the status of the task to display appropriate button appearance
+    if (taskDetails.completed == 1) {
+        statusButton.setAttribute('class', 'btn btn-success');
+        statusButton.setAttribute('onclick', 'changeDisplay(this, false)');
+        statusButton.innerHTML = "Task completed";
+        modalTaskStatus = 1;
+    } else {
+        statusButton.setAttribute('class', 'btn btn-secondary');
+        statusButton.setAttribute('onclick', 'changeDisplay(this, true)');
+        statusButton.innerHTML = "Mark as completed";
+        modalTaskStatus = 0;
+    }
+
+    // pass the original task details to the save button onclick event
+    saveButton.setAttribute('onclick', `onSaveChanges(${JSON.stringify(taskDetails)})`)
+}
+
+// 6.2) function to change status button display
+function changeDisplay(element, status) {
+    if (status == true) {
+        element.setAttribute('class', 'btn btn-success');
+        element.setAttribute('onclick', 'changeDisplay(this, false)');
+        element.innerHTML = "Task completed";
+        modalTaskStatus = 1;
+    } else {
+        element.setAttribute('class', 'btn btn-secondary');
+        element.setAttribute('onclick', 'changeDisplay(this, true)');
+        element.innerHTML = "Mark as completed";
+        modalTaskStatus = 0;
+    }
+}
+
+// 6.3) function to update task from modal window
+function onSaveChanges(taskDetails) {
+    // check whether task item input is not empty or null
+    if (taskItem.value == null || taskItem.value == "") {
+        alert('Please do not update with empty Todo Item');
+        return;
+    } else {
+        fetch(`https://api.kelasprogramming.com/todo/${taskDetails.id}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${todoJWT}`,
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "details": taskItem.value,
+                "completed": modalTaskStatus
+
+            })
+        })
+            .then((response) => response.json())
+            .then((body) => {
+
+                fetchListTodos();
+                body.success == true ? alert('Task successfully updated') : ('Please try again');
+                document.getElementById('closeModal').click();
+            })
+            .catch((err) => { debugger })
+    }
 }
 
 
 
 
 
-// let selectedTodo = ''
-// function selectTodo(todo) {
-//     console.log(todo)
-//     selectedTodo = todo
-// }
 
 // function onSaveChanges() {
 //     const inputValue = document.getElementById('todoUpdate').value

@@ -59,19 +59,19 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="editTodoLabel">Edit</h1>
+          <h1 class="modal-title fs-5" id="editTodoLabel">Update task</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="form-floating pb-2">
-            <input type="text" class="form-control" id="todoUpdate" placeholder="to do list">
-            <label for="todo">Edit Todo</label>
+            <input type="text" class="form-control" id="todo-update" placeholder="to do list">
+            <label for="todo-update">Edit Todo Item</label>
           </div>
-          <div class="btn btn-success">Mark as completed</div>
+          <button id="status-button" type="button" class="" onclick=""></button>
         </div>
         <div class="modal-footer">
           <div type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModal">Close</div>
-          <div class="btn btn-primary" onclick="onSaveChanges()">Save changes</div>
+          <div id="save-button" class="btn btn-primary" onclick="">Save changes</div>
         </div>
       </div>
     </div>
