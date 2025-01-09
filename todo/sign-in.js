@@ -27,6 +27,9 @@ function logIn() {
                 localStorage.setItem('TODO-JWT', body.token)
                 localStorage.setItem('TODO-REFRESH', body.refresh_token)
                 localStorage.setItem('TODO-USERNAME', username)
+
+                let expiryTime = new Date().getTime() + body.expires_in * 1000;
+                localStorage.setItem('TODO-EXPIRY-TIME', expiryTime);
             }  // if false, just proceed to next instruction
 
             // third, proceed to index.html

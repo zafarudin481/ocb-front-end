@@ -7,18 +7,18 @@ switch (true) {
     case (sessionStorage.getItem('TODO-JWT') != null):
         todoJWT = sessionStorage.getItem('TODO-JWT');
         todoUser = sessionStorage.getItem('TODO-USERNAME');
+        fetchListTodos();
+        refreshToken();
         break;
     case (localStorage.getItem('TODO-JWT') != null):
         todoJWT = localStorage.getItem('TODO-JWT');
         todoUser = localStorage.getItem('TODO-USERNAME');
+        fetchListTodos();
         break;
     default:
         window.location.href = "sign-in.html";
         break;
 }
-
-fetchListTodos()
-
 
 // 2) fetch all todos from API index and display in the container
 function fetchListTodos() {
@@ -224,29 +224,42 @@ function onSaveChanges(taskDetails) {
     }
 }
 
+// 7) Function to refresh JWT token for user who tick 'Remember Me' during login
+function refreshToken() {
+    const expiryTime = localStorage.getItem('TODO-EXPIRY-TIME');
+    const currentTime = new Date().getTime();
 
+    //check whether the validity of the current JWT is less than 24 hours or not
+    if (expiryTime - currentTime < 24 * 60 * 60 * 1000) {
+        // if true, then refresh new JWT
+        const refreshToken = localStorage.getItem('TODO-REFRESH')
 
+        fetch('https://api.kelasprogramming.com/consumer/login', {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "refresh_token": refreshToken
+            })
+        })
+            .then((response) => response.json())
+            .then((body) => {
 
+                // save new JWT into local storage
+                localStorage.setItem('TODO-JWT', body.token)
+                localStorage.setItem('TODO-REFRESH', body.refresh_token)
 
+                let expiryTime = new Date().getTime() + body.expires_in * 1000;
+                localStorage.setItem('TODO-EXPIRY-TIME', expiryTime);
 
-// function onSaveChanges() {
-//     const inputValue = document.getElementById('todoUpdate').value
-//     fetch(`https://api.kelasprogramming.com/todo/${selectedTodo.id}`, {
-//         method: 'PUT',
-//         headers: {
-//             "Content-type": "application/json",
-//             "Authorization": `Bearer ${JWTtoken}`
-//         },
-//         body: JSON.stringify({
-//             "details": inputValue,
-//             "completed": 1
-//         })
-//     })
-//         .then((response) => response.json())
-//         .then(body => {
-//             fetchAllTodos()
-//             document.getElementById('todoUpdate').value = ''
-//             document.getElementById('closeModal').click()
-//         })
-//         .catch(err => { debugger })
-// }
+                // update the JWT variable to new refreshed JWT
+                todoJWT = sessionStorage.getItem('TODO-JWT');
+                todoUser = sessionStorage.getItem('TODO-USERNAME');
+
+            })
+            .catch((err) => { debugger })
+    } else {
+        return
+    }
+}
